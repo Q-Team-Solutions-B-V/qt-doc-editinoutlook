@@ -402,5 +402,5 @@ end;
 
 **Next steps:**
 - [Common Errors](../troubleshooting/common-errors.md) - Authentication troubleshooting
-- [Debugging](../troubleshooting/debugging.md) - Debug authentication issues  
+- [Common Errors](../troubleshooting/common-errors.md) - Authentication troubleshooting  
 - [FAQ](../faq/faq.md) - Security related questions

@@ -399,6 +399,5 @@ end;
 ---
 
 **Next steps:**
-- [Debugging](debugging.md) - Advanced troubleshooting techniques
-- [FAQ](../faq/faq.md) - Frequently asked questions
+- [FAQ](../faq/faq.md) - Frequently asked questions and solutions
 - [Support Team](contact-your-support-team) - Professional help

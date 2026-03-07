@@ -20,10 +20,6 @@
 
 ## Troubleshooting
 * [Common errors](docs/troubleshooting/common-errors.md)
-* [Debugging](docs/troubleshooting/debugging.md)
 
 ## FAQ
 * [Frequently asked questions](docs/faq/faq.md)
-
-## Examples
-* [Sample configuration](examples/sample-config.md)

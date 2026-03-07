@@ -221,7 +221,7 @@ The functionality is identical, only the installation method differs.
 **A**: **Support options**:
 - 📚 **Documentation**: Complete documentation on this site
 - 🐛 **Common Errors**: [Troubleshooting page](../troubleshooting/common-errors.md) for common problems
-- 🔧 **Advanced Debug**: [Debug guide](../troubleshooting/debugging.md) for technical problems
+- 🔧 **Technical Problems**: [Common errors guide](../troubleshooting/common-errors.md) for troubleshooting
 - 📞 **Support Team**: Contact your solution provider for technical help
 - 📧 **Email**: Contact your system administrator
 - 📱 **Phone**: +31 030 820 1333

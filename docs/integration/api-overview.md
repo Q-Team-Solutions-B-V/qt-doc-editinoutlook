@@ -415,5 +415,4 @@ codeunit 50103 "EIO Debug Helper"
 
 **Next steps:**
 - [Authentication](authentication.md) - Security integration
-- [Code Examples](../examples/sample-config.md) - Practical examples  
-- [Troubleshooting](../troubleshooting/debugging.md) - Debug techniques
+- [Troubleshooting](../troubleshooting/common-errors.md) - Common issues and solutions

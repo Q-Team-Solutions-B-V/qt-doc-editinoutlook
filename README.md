@@ -38,7 +38,6 @@ Edit in Outlook enables users to edit Business Central document email templates 
 
 ### 🔍 [Troubleshooting](docs/troubleshooting/)
 - [Common errors](docs/troubleshooting/common-errors.md)
-- [Debugging](docs/troubleshooting/debugging.md)
 
 ### ❓ [FAQ](docs/faq/)
 - [Frequently asked questions](docs/faq/faq.md)
