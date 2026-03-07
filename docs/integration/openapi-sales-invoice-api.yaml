@@ -1,0 +1,279 @@
+openapi: 3.0.3
+info:
+  title: QTEAM Sales Invoice API
+  description: |
+    Business Central API for retrieving sales invoice data including PDF attachments.
+    This API provides read-only access to posted sales invoices with the ability to 
+    retrieve the invoice as a Base64 encoded PDF.
+  version: "1.0.0"
+  contact:
+    name: Q-Team Solutions
+    url: https://www.q-teamsolutions.com
+  license:
+    name: Proprietary
+    
+servers:
+  - url: https://{environment}.api.businesscentral.dynamics.com/v2.0/{tenant}/Production/api/qteamsolutions/editinoutlook/v1.0
+    description: Business Central Production Environment
+    variables:
+      environment:
+        default: api
+        description: Business Central environment (api for SaaS, or custom domain for on-premises)
+      tenant:
+        default: common
+        description: Azure AD tenant ID or domain
+  - url: https://{environment}.api.businesscentral.dynamics.com/v2.0/{tenant}/Sandbox/api/qteamsolutions/editinoutlook/v1.0
+    description: Business Central Sandbox Environment
+    variables:
+      environment:
+        default: api
+        description: Business Central environment
+      tenant:
+        default: common
+        description: Azure AD tenant ID or domain
+
+security:
+  - OAuth2: 
+    - https://api.businesscentral.dynamics.com/Financials.ReadWrite.All
+
+paths:
+  /salesInvoices:
+    get:
+      summary: Get sales invoices
+      description: |
+        Retrieves a list of posted sales invoices. Each invoice includes basic information
+        and a Base64 encoded PDF of the invoice document.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: $select
+          in: query
+          description: Select specific fields to return
+          required: false
+          schema:
+            type: string
+          example: "id,no,billToName,amount,pdfInvoice"
+        - name: $filter
+          in: query
+          description: Filter the results
+          required: false
+          schema:
+            type: string
+          example: "billToCustomerNo eq '20000'"
+        - name: $orderby
+          in: query
+          description: Order the results
+          required: false
+          schema:
+            type: string
+          example: "postingDate desc"
+        - name: $top
+          in: query
+          description: Limit the number of results
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 20000
+          example: 50
+        - name: $skip
+          in: query
+          description: Skip a number of results
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+          example: 0
+      responses:
+        200:
+          description: Successfully retrieved sales invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  "@odata.context":
+                    type: string
+                    example: "https://api.businesscentral.dynamics.com/v2.0/tenant/Production/api/qteamsolutions/editinoutlook/v1.0/$metadata#salesInvoices"
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SalesInvoice'
+              example:
+                "@odata.context": "https://api.businesscentral.dynamics.com/v2.0/tenant/Production/api/qteamsolutions/editinoutlook/v1.0/$metadata#salesInvoices"
+                value:
+                  - "@odata.etag": "W/\"JzE5OzczNjYzNDM4MjIxNDY2OTcwMTYxOzAwOyc=\""
+                    id: "c44ac32c-80d0-f011-8bcf-6045bdc89f91"
+                    billToCustomerNo: "20000"
+                    no: "103001"
+                    postingDate: "2023-01-17"
+                    billToName: "Trey Research"
+                    amount: 165.6
+                    amountIncludingVAT: 200.38
+                    pdfInvoice: "JVBERi0xLjcNCiW..."
+        400:
+          description: Bad request - Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized - Invalid or missing authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /salesInvoices({id}):
+    get:
+      summary: Get sales invoice by ID
+      description: |
+        Retrieves a specific sales invoice by its ID, including the Base64 encoded PDF.
+      tags:
+        - Sales Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique identifier of the sales invoice (GUID)
+          schema:
+            type: string
+            format: uuid
+          example: "c44ac32c-80d0-f011-8bcf-6045bdc89f91"
+        - name: $select
+          in: query
+          description: Select specific fields to return
+          required: false
+          schema:
+            type: string
+          example: "id,no,billToName,pdfInvoice"
+      responses:
+        200:
+          description: Successfully retrieved the sales invoice
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SalesInvoice'
+                  - type: object
+                    properties:
+                      "@odata.context":
+                        type: string
+                        example: "https://api.businesscentral.dynamics.com/v2.0/tenant/Production/api/qteamsolutions/editinoutlook/v1.0/$metadata#salesInvoices/$entity"
+        404:
+          description: Sales invoice not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    SalesInvoice:
+      type: object
+      description: A posted sales invoice with PDF content
+      properties:
+        "@odata.etag":
+          type: string
+          description: ETag for optimistic concurrency
+          example: "W/\"JzE5OzczNjYzNDM4MjIxNDY2OTcwMTYxOzAwOyc=\""
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier of the sales invoice (SystemId)
+          example: "c44ac32c-80d0-f011-8bcf-6045bdc89f91"
+          readOnly: true
+        billToCustomerNo:
+          type: string
+          description: Customer number for billing
+          example: "20000"
+          maxLength: 20
+        no:
+          type: string
+          description: Invoice number
+          example: "103001"
+          maxLength: 20
+        postingDate:
+          type: string
+          format: date
+          description: Date when the invoice was posted
+          example: "2023-01-17"
+        billToName:
+          type: string
+          description: Name of the customer being billed
+          example: "Trey Research"
+          maxLength: 100
+        amount:
+          type: number
+          format: decimal
+          description: Invoice amount excluding VAT
+          example: 165.6
+        amountIncludingVAT:
+          type: number
+          format: decimal
+          description: Invoice amount including VAT
+          example: 200.38
+        pdfInvoice:
+          type: string
+          format: base64
+          description: |
+            Base64 encoded PDF content of the sales invoice. 
+            Can be decoded and saved as a PDF file.
+            Returns empty string if PDF generation fails.
+          example: "JVBERi0xLjcNCiW..."
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: "BadRequest"
+            message:
+              type: string
+              description: Error message
+              example: "Invalid query parameter"
+            details:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  message:
+                    type: string
+                  target:
+                    type: string
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            https://api.businesscentral.dynamics.com/Financials.ReadWrite.All: Access to Business Central APIs
+
+tags:
+  - name: Sales Invoices
+    description: Operations related to sales invoices
+
+externalDocs:
+  description: Business Central API Documentation
+  url: https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/api-reference/v2.0/
