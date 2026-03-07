@@ -35,7 +35,7 @@ end;
 
 #### Email Processing Tracking
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnBeforeProcessEmail', '', false, false)]
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_ID], 'OnBeforeProcessEmail', '', false, false)]
 local procedure LogEmailProcessingStart(EmailMessage: Record "Email Message"; var IsHandled: Boolean)
 begin
     LogEIOActivity('EmailProcessingStarted', 
@@ -44,7 +44,7 @@ begin
                              EmailMessage.Subject));
 end;
 
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnAfterProcessEmail', '', false, false)]  
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_ID], 'OnAfterProcessEmail', '', false, false)]  
 local procedure LogEmailProcessingCompleted(Success: Boolean; ErrorMessage: Text)
 begin
     if Success then
@@ -292,7 +292,7 @@ begin
     HttpRequest.Method := 'GET';
     
     HttpRequest.GetHeaders(Headers);
-    Headers.Add('Authorization', 'Bearer ' + GetBearerToken());
+    Headers.Add('Authorization', 'Bearer ' + GetAccessToken());
     
     if HttpClient.Send(HttpRequest, HttpResponse) then begin
         HttpResponse.Content.ReadAs(ResponseText);
@@ -311,7 +311,7 @@ var
     HttpResponse: HttpResponseMessage;
     QTeamAuth: Codeunit "Q-Team App Authenticator";
 begin
-    HttpRequest.SetRequestUri('https://api.q-teamsolutions.com/health');
+    HttpRequest.SetRequestUri('https://your-api-server.com/health');
     HttpRequest.Method := 'GET';
     
     if HttpClient.Send(HttpRequest, HttpResponse) then
@@ -337,7 +337,7 @@ function Test-EIOConnectivity {
     # Test basic connectivity
     $endpoints = @(
         $BusinessCentralURL,
-        "https://api.q-teamsolutions.com",
+        "https://your-api-server.com",
         "https://login.microsoftonline.com"
     )
     
@@ -355,7 +355,7 @@ function Test-EIOConnectivity {
     
     # Test DNS resolution
     Write-Host "`nDNS Resolution Test:" -ForegroundColor Yellow
-    $dnsNames = @("businesscentral.dynamics.com", "api.q-teamsolutions.com")
+    $dnsNames = @("your-bc-domain.com", "your-api-server.com")
     
     foreach ($dns in $dnsNames) {
         try {
@@ -369,7 +369,7 @@ function Test-EIOConnectivity {
 }
 
 # Run the test
-Test-EIOConnectivity -BusinessCentralURL "https://your-bc-instance.businesscentral.dynamics.com"
+Test-EIOConnectivity -BusinessCentralURL "https://your-bc-instance.dynamics.com"
 ```
 
 ## Performance Debugging
@@ -411,7 +411,7 @@ codeunit 50200 "Performance Tracker"
 
 #### Usage in EML Generation
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnBeforeGenerateEML', '', false, false)]
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_ID], 'OnBeforeGenerateEML', '', false, false)]
 local procedure StartPerformanceTracking(EmailMessageId: Guid; var IsHandled: Boolean)
 var
     PerfTracker: Codeunit "Performance Tracker";
@@ -419,7 +419,7 @@ begin
     PerfTracker.StartTimer('EMLGeneration_' + Format(EmailMessageId));
 end;
 
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnAfterGenerateEML', '', false, false)]
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_ID], 'OnAfterGenerateEML', '', false, false)]
 local procedure EndPerformanceTracking(FileName: Text; FileContent: InStream)
 var
     PerfTracker: Codeunit "Performance Tracker";
@@ -499,4 +499,4 @@ end;
 **Next Steps:**
 - [Common Errors](common-errors.md) - Basic troubleshooting
 - [FAQ](../faq/faq.md) - Frequently asked debug questions
-- [Q-Team Support](https://www.q-teamsolutions.com/support/) - Professional debug assistance
+- [Support Team](contact-your-support-team) - Professional debug assistance

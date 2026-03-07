@@ -8,7 +8,7 @@ Edit in Outlook offers various extensibility points for developers to extend fun
 
 ## Integration Events
 
-### QTEAMEIOEmailFunctions Codeunit (ID: 11196255)
+### Email Functions Codeunit (ID: [YOUR_CODEUNIT_ID])
 
 The core codeunit provides various Integration Events for custom implementations:
 
@@ -25,7 +25,7 @@ local procedure OnBeforeGenerateEML(EmailMessageId: Guid; var IsHandled: Boolean
 
 **Example Implementation**:
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnBeforeGenerateEML', '', false, false)]
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_CODEUNIT], 'OnBeforeGenerateEML', '', false, false)]
 local procedure OnBeforeGenerateEMLHandler(EmailMessageId: Guid; var IsHandled: Boolean)
 var
     EmailMessage: Record "Email Message";
@@ -54,7 +54,7 @@ local procedure OnAfterGenerateEML(FileName: Text; FileContent: InStream)
 
 **Example Implementation**:
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnAfterGenerateEML', '', false, false)]
+[EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_CODEUNIT], 'OnAfterGenerateEML', '', false, false)]
 local procedure OnAfterGenerateEMLHandler(FileName: Text; FileContent: InStream)
 var
     EmailArchive: Codeunit "Email Archive Management";
@@ -174,7 +174,7 @@ Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('AddAttachment', [fileName, fil
 ```al
 codeunit 50100 "Custom EIO Integration"
 {
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::QTEAMEIOEmailFunctions, 'OnBeforeGenerateEML', '', false, false)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::[YOUR_EMAIL_FUNCTIONS_ID], 'OnBeforeGenerateEML', '', false, false)]
     local procedure CustomPreProcessing(EmailMessageId: Guid; var IsHandled: Boolean)
     var
         CustomLogic: Codeunit "Custom Email Logic";
@@ -286,7 +286,7 @@ api page 50100 "EML Generation API"
             {
                 trigger OnAction()
                 var
-                    EIOFunctions: Codeunit QTEAMEIOEmailFunctions;
+                    EIOFunctions: Codeunit [YOUR_EMAIL_FUNCTIONS_CODEUNIT];
                 begin
                     EIOFunctions.GenerateEMLFile(Rec."Message Id");
                 end;

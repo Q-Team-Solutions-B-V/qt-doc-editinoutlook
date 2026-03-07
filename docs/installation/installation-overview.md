@@ -42,7 +42,7 @@ This page provides a complete overview of the installation and configuration of 
 ### 2. On-Premise Installation
 
 #### Step 1: Download App
-1. Visit [Q-Team Solutions website](https://www.q-teamsolutions.com/product/edit-in-outlook/)
+1. Contact your solution provider to obtain the app
 2. Download the latest .app file
 3. Save the file on your Business Central server
 

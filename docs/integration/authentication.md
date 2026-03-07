@@ -36,8 +36,8 @@ Edit in Outlook depends on Q-Team App Authenticator:
    ```al
    // Via Setup Page
    QTeamAuthSetup.Get();
-   QTeamAuthSetup."License Key" := 'YOUR_LICENSE_KEY';
-   QTeamAuthSetup."Customer No." := 'CUSTOMER_ID';
+   QTeamAuthSetup."License Key" := '[YOUR_LICENSE_KEY]';
+   QTeamAuthSetup."Customer No." := '[YOUR_CUSTOMER_ID]';
    QTeamAuthSetup.Modify();
    ```
 3. **Test Connection**: Verify authenticator works correctly
@@ -90,11 +90,11 @@ begin
     // Get document record
     case DocumentType of
         DocumentType::Quote:
-            RecRef.Open(Database::"Sales Header");
+            RecRef.Open(Database::[YOUR_QUOTE_TABLE]);
         DocumentType::Order:
-            RecRef.Open(Database::"Sales Header");
+            RecRef.Open(Database::[YOUR_ORDER_TABLE]);
         DocumentType::Invoice:
-            RecRef.Open(Database::"Sales Invoice Header");
+            RecRef.Open(Database::[YOUR_INVOICE_TABLE]);
     end;
     
     // Check read permissions
@@ -162,9 +162,9 @@ if (window.location.protocol !== 'https:') {
 
 // Verify Business Central domain
 const allowedDomains = [
-    'businesscentral.dynamics.com',
-    '*.onmicrosoft.com',
-    'localhost' // Development only
+    'your-bc-instance.dynamics.com',
+    '*.yourdomain.com'
+    // Remove localhost for production
 ];
 
 if (!isDomainAllowed(window.location.hostname, allowedDomains)) {
@@ -181,7 +181,7 @@ if (!isDomainAllowed(window.location.hostname, allowedDomains)) {
                script-src 'self' 'unsafe-inline';
                style-src 'self' 'unsafe-inline';
                img-src 'self' data: https:;
-               connect-src 'self' https://api.q-teamsolutions.com">
+               connect-src 'self' https://your-api-server.com">
 ```
 
 ## API Authentication
@@ -238,7 +238,7 @@ codeunit 50100 "OAuth2 EIO Integration"
     begin
         OAuth2.AcquireTokenByCredentials(
             'https://login.microsoftonline.com/common/oauth2/token',
-            'https://api.q-teamsolutions.com/',
+            'https://your-api-server.com/',
             ClientId,
             ClientSecret,
             AuthToken);

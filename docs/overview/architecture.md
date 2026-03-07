@@ -30,7 +30,7 @@ graph TB
 #### Codeunits
 | Codeunit | Function |
 |----------|---------|
-| `QTEAMEIOEmailFunctions` | Core email functionality and EML generation |
+| `EIOEmailFunctions` | Core email functionality and EML generation |
 | `QTEAMEditinOutlookSubs` | Business Central event subscribers |
 | `QTEAMEIOAppSetup` | App configuration and setup |
 | `QTEAMEmailMessageImpl` | Email message implementation |

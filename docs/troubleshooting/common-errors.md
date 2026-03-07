@@ -191,7 +191,7 @@ begin
         until UserPermissionSet.Next() = 0;
         
     // Check specific object permissions
-    CheckObjectPermission(UserId, ObjectType::Codeunit, 11196255); // EIO Email Functions
+    CheckObjectPermission(UserId, ObjectType::Codeunit, [YOUR_EMAIL_FUNCTIONS_ID]); // EIO Email Functions
 end;
 ```
 
@@ -258,7 +258,7 @@ end;
 Common Authenticator Fixes:
 1. Verify license key is correct (contact Q-Team if unsure)
 2. Check internet connectivity from BC server
-3. Verify firewall allows outbound HTTPS to api.q-teamsolutions.com
+3. Verify firewall allows outbound HTTPS to your-api-server.com
 4. Clear authenticator cache: Delete all entries in "Q-Team Auth Cache"
 5. Restart BC service (On-Premise only)
 ```
@@ -401,4 +401,4 @@ end;
 **Next steps:**
 - [Debugging](debugging.md) - Advanced troubleshooting techniques
 - [FAQ](../faq/faq.md) - Frequently asked questions
-- [Support](https://www.q-teamsolutions.com/contact/) - Professional help
+- [Support Team](contact-your-support-team) - Professional help

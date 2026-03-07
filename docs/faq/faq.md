@@ -199,8 +199,8 @@ The functionality is identical, only the installation method differs.
 **Q**: What does Edit in Outlook cost and how does licensing work?
 
 **A**: **License information**:
-- **SaaS**: Via Microsoft AppSource - see [current prices](https://appsource.microsoft.com/en-us/marketplace/apps?search=q%20team%20solutions&page=1)
-- **On-Premise**: Via Q-Team Solutions website - see [price overview](https://www.q-teamsolutions.com/product/edit-in-outlook/)
+- **SaaS**: Via Microsoft AppSource - see current pricing
+- **On-Premise**: Contact your solution provider for pricing information
 - **Included**: 24/7 Online support, updates (SaaS), Q-Team App Authenticator
 - **Per user**: License required for each user who uses Edit in Outlook
 
@@ -210,7 +210,7 @@ The functionality is identical, only the installation method differs.
 **A**: **Trial options**:
 - **SaaS**: Many AppSource apps have free trial period - check AppSource listing
 - **On-Premise**: Contact Q-Team Solutions for demo/trial possibilities  
-- **Demo**: View demo video on [product page](https://www.q-teamsolutions.com/apps/edit-in-outlook/)
+- **Demo**: Contact your solution provider for a demonstration
 - **Documentation**: Use this comprehensive documentation to evaluate functionality
 
 ## Support & Help
@@ -222,8 +222,8 @@ The functionality is identical, only the installation method differs.
 - 📚 **Documentation**: Complete documentation on this site
 - 🐛 **Common Errors**: [Troubleshooting page](../troubleshooting/common-errors.md) for common problems
 - 🔧 **Advanced Debug**: [Debug guide](../troubleshooting/debugging.md) for technical problems
-- 📞 **Q-Team Support**: [Contact page](https://www.q-teamsolutions.com/contact/) for direct help
-- 📧 **Email**: info@q-teamsolutions.com
+- 📞 **Support Team**: Contact your solution provider for technical help
+- 📧 **Email**: Contact your system administrator
 - 📱 **Phone**: +31 030 820 1333
 
 ### How do I stay informed about updates?
@@ -232,11 +232,11 @@ The functionality is identical, only the installation method differs.
 **A**: **Update channels**:
 - **SaaS**: Automatic updates via AppSource
 - **On-Premise**: Email notifications from Q-Team Solutions  
-- **Release Notes**: [Changelog page](https://www.q-teamsolutions.com/docs/edit-in-outlook/release-notes) 
+- **Release Notes**: Check with your solution provider for version updates 
 - **Newsletter**: Subscribe to Q-Team Solutions newsletter
-- **LinkedIn**: Follow [Q-Team Solutions LinkedIn](https://www.linkedin.com/company/dynamics-dossier/)
+- **LinkedIn**: Follow your solution provider on LinkedIn for updates
 
 ---
 
 **More questions?**  
-Contact [Q-Team Solutions support](https://www.q-teamsolutions.com/contact/) for personal assistance.
+Contact your solution provider or system administrator for personal assistance.
