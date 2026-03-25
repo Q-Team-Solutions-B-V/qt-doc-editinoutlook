@@ -193,6 +193,34 @@ The functionality is identical, only the installation method differs.
    - Check "Always use this app to open .eml files"
 2. **Alternative**: Go to Windows Settings → Apps → Default apps → Choose default apps by file type → .eml → Microsoft Outlook
 
+### Browser blocks pop-ups for Business Central
+**Q**: I'm getting the message: "Your browser may be blocking pop-ups that are required for Business Central. Change your browser settings to allow pop-ups or to allow pop-ups from the Business Central site. Try again."
+
+**A**: This message appears when your browser blocks a pop-up that Business Central needs for certain functions like "Edit in Outlook" (which opens .eml files).
+
+**Solutions by browser:**
+
+**Microsoft Edge:**
+1. Go to: `edge://settings/content/popups`
+2. Set Pop-ups and redirects to **Allow**
+3. Or specifically add: `https://businesscentral.dynamics.com` to **Allow**
+
+**Google Chrome:**
+1. Go to: `chrome://settings/content/popups`
+2. Set to **Sites can send pop-ups and use redirects**
+3. Or specifically add: `https://businesscentral.dynamics.com` to **Allow**
+
+**Quick solution (temporary):**
+- Click the block icon in the address bar (usually on the right side of the URL)
+- Choose: **Always allow pop-ups from this site**
+
+**Why this is needed:** Functions like "Edit in Outlook" require Business Central to open files via pop-ups. When blocked:
+- The .eml file won't download or open
+- You cannot edit emails in Outlook  
+- Other download functions may not work properly
+
+💡 **Security tip:** Only allow pop-ups for Business Central and other trusted sites, not globally for all websites.
+
 ## Licensing & Cost Questions  
 
 ### What about the licensing costs?
@@ -209,7 +237,7 @@ The functionality is identical, only the installation method differs.
 
 **A**: **Trial options**:
 - **SaaS**: Many AppSource apps have free trial period - check AppSource listing
-- **On-Premise**: Contact Q-Team Solutions for demo/trial possibilities  
+- **On-Premise**: Contact Q-Team Solutions for demo/trial possibilities ([support@q-team.nl](mailto:support@q-team.nl))  
 - **Demo**: Contact your solution provider for a demonstration
 - **Documentation**: Use this comprehensive documentation to evaluate functionality
 
@@ -223,7 +251,7 @@ The functionality is identical, only the installation method differs.
 - 🐛 **Common Errors**: [Troubleshooting page](../troubleshooting/common-errors.md) for common problems
 - 🔧 **Technical Problems**: [Common errors guide](../troubleshooting/common-errors.md) for troubleshooting
 - 📞 **Support Team**: Contact your solution provider for technical help
-- 📧 **Email**: Contact your system administrator
+- 📧 **Email**: [support@q-team.nl](mailto:support@q-team.nl)
 - 📱 **Phone**: +31 030 820 1333
 
 ### How do I stay informed about updates?
@@ -239,4 +267,4 @@ The functionality is identical, only the installation method differs.
 ---
 
 **More questions?**  
-Contact your solution provider or system administrator for personal assistance.
+Contact Q-Team Solutions at 📧 [support@q-team.nl](mailto:support@q-team.nl) for personal assistance.
