@@ -67,23 +67,7 @@ Denne side beskriver, hvordan du bruger Edit in Outlook til at redigere og sende
 ### Business Central-e-mail-dialogboks
 Når du vælger „Send e-mail", ser du:
 
-```
-┌─ E-mailbesked ──────────────────────────────┐
-│ Til: kunde@eksempel.dk                      │
-│ Cc:                                         │
-│ Bcc:                                        │
-│ Emne: Salgstilbud ST001                     │
-│                                             │
-│ Skabelon: [Vælg skabelon ▼]               │
-│ Vedhæftning: Salgstilbud ST001.pdf ☑      │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Rediger i Outlook] [Send direkte]      │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Annuller]                             │
-└─────────────────────────────────────────────┘
-```
+![Dialogboksen Send e-mail i Business Central](../../../assets/Send%20Email.png)
 
 ### Download-prompt for Edit in Outlook
 Efter klik på „Rediger i Outlook":

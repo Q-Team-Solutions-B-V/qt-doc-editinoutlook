@@ -67,23 +67,7 @@ Op deze pagina wordt beschreven hoe u Edit in Outlook gebruikt om e-mails van Bu
 ### Business Central-e-maildialoogvenster
 Wanneer u "E-mail verzenden" selecteert, ziet u:
 
-```
-┌─ E-mailbericht ─────────────────────────────┐
-│ Aan: klant@voorbeeld.nl                     │
-│ CC:                                         │
-│ BCC:                                        │
-│ Onderwerp: Verkoopofferte VO001             │
-│                                             │
-│ Sjabloon: [Sjabloon selecteren ▼]          │
-│ Bijlage: Verkoopofferte VO001.pdf ☑        │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Bewerken in Outlook] [Direct verzenden]│ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Annuleren]                            │
-└─────────────────────────────────────────────┘
-```
+![Dialoogvenster E-mail verzenden in Business Central](../../../assets/Send%20Email.png)
 
 ### Downloadprompt voor Edit in Outlook
 Na het klikken op "Bewerken in Outlook":

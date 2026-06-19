@@ -67,23 +67,7 @@ Denne siden beskriver hvordan du bruker Edit in Outlook til å redigere og sende
 ### Business Central-e-post-dialogboks
 Når du velger «Send e-post», ser du:
 
-```
-┌─ E-postmelding ─────────────────────────────┐
-│ Til: kunde@eksempel.no                      │
-│ Kopi:                                       │
-│ Blindkopi:                                  │
-│ Emne: Salgstilbud ST001                     │
-│                                             │
-│ Mal: [Velg mal ▼]                          │
-│ Vedlegg: Salgstilbud ST001.pdf ☑           │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Rediger i Outlook] [Send direkte]      │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Avbryt]                               │
-└─────────────────────────────────────────────┘
-```
+![Dialogboksen Send e-post i Business Central](../../../assets/Send%20Email.png)
 
 ### Nedlastingsforespørsel for Edit in Outlook
 Etter klikk på «Rediger i Outlook»:

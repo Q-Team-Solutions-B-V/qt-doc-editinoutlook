@@ -67,23 +67,7 @@ This page describes how to use Edit in Outlook to edit and send Business Central
 ### Business Central Email Dialog
 When you select "Send Email", you see:
 
-```
-┌─ Email Message ─────────────────────────────┐
-│ To: customer@example.com                    │
-│ Cc:                                         │
-│ Bcc:                                        │
-│ Subject: Sales Quote SQ001                  │
-│                                             │
-│ Template: [Select Template ▼]              │
-│ Attachment: Sales Quote SQ001.pdf ☑        │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Edit in Outlook] [Send Directly]       │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Cancel]                               │
-└─────────────────────────────────────────────┘
-```
+![Business Central Send Email dialog](../../../assets/Send%20Email.png)
 
 ### Edit in Outlook Download Prompt
 After clicking "Edit in Outlook":

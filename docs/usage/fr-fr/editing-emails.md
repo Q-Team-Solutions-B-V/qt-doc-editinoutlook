@@ -67,23 +67,7 @@ Cette page décrit comment utiliser Edit in Outlook pour modifier et envoyer des
 ### Boîte de dialogue d'e-mail Business Central
 Lorsque vous sélectionnez « Envoyer un e-mail », vous voyez :
 
-```
-┌─ Message e-mail ────────────────────────────┐
-│ À : client@exemple.fr                       │
-│ Cc :                                        │
-│ Cci :                                       │
-│ Objet : Devis de vente DV001                │
-│                                             │
-│ Modèle : [Sélectionner un modèle ▼]        │
-│ Pièce jointe : Devis de vente DV001.pdf ☑  │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Modifier dans Outlook] [Envoi direct]  │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Annuler]                              │
-└─────────────────────────────────────────────┘
-```
+![Boîte de dialogue Envoyer un e-mail dans Business Central](../../../assets/Send%20Email.png)
 
 ### Invite de téléchargement Edit in Outlook
 Après avoir cliqué sur « Modifier dans Outlook » :

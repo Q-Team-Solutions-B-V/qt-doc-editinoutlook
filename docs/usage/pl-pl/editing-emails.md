@@ -67,23 +67,7 @@ Ta strona opisuje, jak używać Edit in Outlook do edytowania i wysyłania wiado
 ### Okno dialogowe e-mail Business Central
 Po wybraniu „Wyślij e-mail" zobaczysz:
 
-```
-┌─ Wiadomość e-mail ──────────────────────────┐
-│ Do: klient@przyklad.pl                      │
-│ DW:                                         │
-│ UDW:                                        │
-│ Temat: Oferta sprzedaży OS001               │
-│                                             │
-│ Szablon: [Wybierz szablon ▼]               │
-│ Załącznik: Oferta sprzedaży OS001.pdf ☑    │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Edytuj w Outlooku] [Wyślij bezpośr.]  │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Anuluj]                               │
-└─────────────────────────────────────────────┘
-```
+![Okno dialogowe Wyślij e-mail w programie Business Central](../../../assets/Send%20Email.png)
 
 ### Monit pobierania Edit in Outlook
 Po kliknięciu „Edytuj w programie Outlook":
