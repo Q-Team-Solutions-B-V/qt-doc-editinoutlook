@@ -67,7 +67,7 @@ Auf dieser Seite wird beschrieben, wie Sie Edit in Outlook verwenden, um E-Mails
 ### Business Central-E-Mail-Dialogfeld
 Wenn Sie „E-Mail senden" auswählen, sehen Sie:
 
-![Business Central-Dialogfeld „E-Mail senden“](../../../assets/Send%20Email.png)
+![Business Central-Dialogfeld „E-Mail senden“](../../assets/Send%20Email.png)
 
 ### Download-Aufforderung für Edit in Outlook
 Nach dem Klicken auf „In Outlook bearbeiten":

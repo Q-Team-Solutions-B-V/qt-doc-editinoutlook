@@ -67,7 +67,7 @@ Esta página describe cómo usar Edit in Outlook para editar y enviar correos el
 ### Cuadro de diálogo de correo electrónico de Business Central
 Cuando selecciona «Enviar correo electrónico», verá:
 
-![Cuadro de diálogo Enviar correo electrónico de Business Central](../../../assets/Send%20Email.png)
+![Cuadro de diálogo Enviar correo electrónico de Business Central](../../assets/Send%20Email.png)
 
 ### Mensaje de descarga de Edit in Outlook
 Después de hacer clic en «Editar en Outlook»:

@@ -67,7 +67,7 @@ Cette page décrit comment utiliser Edit in Outlook pour modifier et envoyer des
 ### Boîte de dialogue d'e-mail Business Central
 Lorsque vous sélectionnez « Envoyer un e-mail », vous voyez :
 
-![Boîte de dialogue Envoyer un e-mail dans Business Central](../../../assets/Send%20Email.png)
+![Boîte de dialogue Envoyer un e-mail dans Business Central](../../assets/Send%20Email.png)
 
 ### Invite de téléchargement Edit in Outlook
 Après avoir cliqué sur « Modifier dans Outlook » :

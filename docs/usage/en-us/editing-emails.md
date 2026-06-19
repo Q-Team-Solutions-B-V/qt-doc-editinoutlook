@@ -67,7 +67,7 @@ This page describes how to use Edit in Outlook to edit and send Business Central
 ### Business Central Email Dialog
 When you select "Send Email", you see:
 
-![Business Central Send Email dialog](../../../assets/Send%20Email.png)
+![Business Central Send Email dialog](../../assets/Send%20Email.png)
 
 ### Edit in Outlook Download Prompt
 After clicking "Edit in Outlook":

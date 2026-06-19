@@ -67,7 +67,7 @@ Ta strona opisuje, jak używać Edit in Outlook do edytowania i wysyłania wiado
 ### Okno dialogowe e-mail Business Central
 Po wybraniu „Wyślij e-mail" zobaczysz:
 
-![Okno dialogowe Wyślij e-mail w programie Business Central](../../../assets/Send%20Email.png)
+![Okno dialogowe Wyślij e-mail w programie Business Central](../../assets/Send%20Email.png)
 
 ### Monit pobierania Edit in Outlook
 Po kliknięciu „Edytuj w programie Outlook":

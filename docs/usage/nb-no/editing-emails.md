@@ -67,7 +67,7 @@ Denne siden beskriver hvordan du bruker Edit in Outlook til å redigere og sende
 ### Business Central-e-post-dialogboks
 Når du velger «Send e-post», ser du:
 
-![Dialogboksen Send e-post i Business Central](../../../assets/Send%20Email.png)
+![Dialogboksen Send e-post i Business Central](../../assets/Send%20Email.png)
 
 ### Nedlastingsforespørsel for Edit in Outlook
 Etter klikk på «Rediger i Outlook»:

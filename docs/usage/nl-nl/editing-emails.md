@@ -67,7 +67,7 @@ Op deze pagina wordt beschreven hoe u Edit in Outlook gebruikt om e-mails van Bu
 ### Business Central-e-maildialoogvenster
 Wanneer u "E-mail verzenden" selecteert, ziet u:
 
-![Dialoogvenster E-mail verzenden in Business Central](../../../assets/Send%20Email.png)
+![Dialoogvenster E-mail verzenden in Business Central](../../assets/Send%20Email.png)
 
 ### Downloadprompt voor Edit in Outlook
 Na het klikken op "Bewerken in Outlook":
