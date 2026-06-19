@@ -72,15 +72,7 @@ Cuando selecciona «Enviar correo electrónico», verá:
 ### Mensaje de descarga de Edit in Outlook
 Después de hacer clic en «Editar en Outlook»:
 
-```
-┌─ Descarga del navegador ────────────────────┐
-│ ⬇ Descargando: OfertaVenta_OV001.eml      │
-│                                             │
-│ ✓ Descarga completada                      │
-│                                             │
-│ [ Abrir con Outlook ]  [ Mostrar en carpeta]│
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Ventana de redacción de Outlook
 El archivo .eml se abre en Outlook con:

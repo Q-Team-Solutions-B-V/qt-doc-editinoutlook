@@ -72,15 +72,7 @@ Po wybraniu „Wyślij e-mail" zobaczysz:
 ### Monit pobierania Edit in Outlook
 Po kliknięciu „Edytuj w programie Outlook":
 
-```
-┌─ Pobieranie przeglądarki ───────────────────┐
-│ ⬇ Pobieranie: OfertaSprzedazy_OS001.eml    │
-│                                             │
-│ ✓ Pobieranie zakończone                    │
-│                                             │
-│ [ Otwórz w programie Outlook ]  [ Pokaż ]  │
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Okno tworzenia wiadomości Outlook
 Plik .eml otwiera się w programie Outlook z:

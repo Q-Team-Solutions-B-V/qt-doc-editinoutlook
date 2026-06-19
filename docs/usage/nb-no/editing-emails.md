@@ -72,15 +72,7 @@ Når du velger «Send e-post», ser du:
 ### Nedlastingsforespørsel for Edit in Outlook
 Etter klikk på «Rediger i Outlook»:
 
-```
-┌─ Nettlesernedlasting ───────────────────────┐
-│ ⬇ Laster ned: Salgstilbud_ST001.eml       │
-│                                             │
-│ ✓ Nedlasting fullført                      │
-│                                             │
-│ [ Åpne med Outlook ]  [ Vis i mappe ]      │
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Outlook-skrivevindu
 .eml-filen åpnes i Outlook med:

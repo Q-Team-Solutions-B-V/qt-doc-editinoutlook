@@ -72,15 +72,7 @@ Når du vælger „Send e-mail", ser du:
 ### Download-prompt for Edit in Outlook
 Efter klik på „Rediger i Outlook":
 
-```
-┌─ Browser-download ──────────────────────────┐
-│ ⬇ Downloader: Salgstilbud_ST001.eml       │
-│                                             │
-│ ✓ Download fuldført                        │
-│                                             │
-│ [ Åbn med Outlook ]  [ Vis i mappe ]       │
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Outlook-skrivevindue
 .eml-filen åbnes i Outlook med:

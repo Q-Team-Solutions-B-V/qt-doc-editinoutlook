@@ -72,15 +72,7 @@ Wanneer u "E-mail verzenden" selecteert, ziet u:
 ### Downloadprompt voor Edit in Outlook
 Na het klikken op "Bewerken in Outlook":
 
-```
-┌─ Browserdownload ───────────────────────────┐
-│ ⬇ Downloaden: Verkoopofferte_VO001.eml     │
-│                                             │
-│ ✓ Download voltooid                         │
-│                                             │
-│ [ Openen met Outlook ]  [ Weergeven in map ]│
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Outlook-opstelvenster
 Het .eml-bestand opent in Outlook met:

@@ -67,36 +67,12 @@ This page describes how to use Edit in Outlook to edit and send Business Central
 ### Business Central E-mail Dialoog
 Wanneer je "Send Email" selecteert, zie je:
 
-```
-┌─ Email Message ─────────────────────────────┐
-│ To: customer@example.com                    │
-│ Cc:                                         │
-│ Bcc:                                        │
-│ Subject: Sales Quote SQ001                  │
-│                                             │
-│ Template: [Select Template ▼]              │
-│ Attachment: Sales Quote SQ001.pdf ☑        │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ [Edit in Outlook] [Send Directly]       │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ [OK] [Cancel]                               │
-└─────────────────────────────────────────────┘
-```
+![Send Email](../assets/Send%20Email.png)
 
 ### Edit in Outlook Download Prompt
 Na het klikken op "Edit in Outlook":
 
-```
-┌─ Browser Download ──────────────────────────┐
-│ ⬇ Downloading: SalesQuote_SQ001.eml        │
-│                                             │
-│ ✓ Download complete                         │
-│                                             │
-│ [ Open with Outlook ]  [ Show in folder ]  │
-└─────────────────────────────────────────────┘
-```
+![Download](../assets/Download.png)
 
 ### Outlook Compose Window
 Het .eml bestand opent in Outlook met:

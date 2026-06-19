@@ -72,15 +72,7 @@ When you select "Send Email", you see:
 ### Edit in Outlook Download Prompt
 After clicking "Edit in Outlook":
 
-```
-┌─ Browser Download ──────────────────────────┐
-│ ⬇ Downloading: SalesQuote_SQ001.eml        │
-│                                             │
-│ ✓ Download complete                         │
-│                                             │
-│ [ Open with Outlook ]  [ Show in folder ]  │
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Outlook Compose Window
 The .eml file opens in Outlook with:

@@ -72,15 +72,7 @@ Wenn Sie „E-Mail senden" auswählen, sehen Sie:
 ### Download-Aufforderung für Edit in Outlook
 Nach dem Klicken auf „In Outlook bearbeiten":
 
-```
-┌─ Browser-Download ──────────────────────────┐
-│ ⬇ Download: Verkaufsangebot_VA001.eml      │
-│                                             │
-│ ✓ Download abgeschlossen                    │
-│                                             │
-│ [ In Outlook öffnen ]  [ Im Ordner zeigen ] │
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Outlook-Verfassensfenster
 Die .eml-Datei öffnet sich in Outlook mit:

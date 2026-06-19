@@ -72,15 +72,7 @@ Lorsque vous sélectionnez « Envoyer un e-mail », vous voyez :
 ### Invite de téléchargement Edit in Outlook
 Après avoir cliqué sur « Modifier dans Outlook » :
 
-```
-┌─ Téléchargement navigateur ─────────────────┐
-│ ⬇ Téléchargement : DevisVente_DV001.eml    │
-│                                             │
-│ ✓ Téléchargement terminé                   │
-│                                             │
-│ [ Ouvrir avec Outlook ]  [ Afficher dossier]│
-└─────────────────────────────────────────────┘
-```
+![Download](../../assets/Download.png)
 
 ### Fenêtre de rédaction Outlook
 Le fichier .eml s'ouvre dans Outlook avec :
