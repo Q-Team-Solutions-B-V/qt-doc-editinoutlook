@@ -77,26 +77,7 @@ After clicking "Edit in Outlook":
 ### Outlook Compose Window
 The .eml file opens in Outlook with:
 
-```
-┌─ New Message - Outlook ─────────────────────┐
-│ From: your-email@company.com                │
-│ To: customer@example.com                    │
-│ Subject: Sales Quote SQ001                  │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Dear Customer,                          │ │
-│ │                                         │ │
-│ │ Please find attached our quote SQ001.  │ │
-│ │                                         │ │
-│ │ Best regards,                           │ │
-│ │ [Your Name]                             │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Attachments: 📎 SalesQuote_SQ001.pdf      │
-│                                             │
-│ [Send] [Save Draft] [Discard]              │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Email Editing Features
 

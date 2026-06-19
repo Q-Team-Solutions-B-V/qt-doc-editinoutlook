@@ -77,26 +77,7 @@ Na het klikken op "Edit in Outlook":
 ### Outlook Compose Window
 Het .eml bestand opent in Outlook met:
 
-```
-┌─ New Message - Outlook ─────────────────────┐
-│ From: jouw-email@bedrijf.nl                 │
-│ To: customer@example.com                    │  
-│ Subject: Sales Quote SQ001                  │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Dear Customer,                          │ │
-│ │                                         │ │
-│ │ Please find attached our quote SQ001.  │ │
-│ │                                         │ │
-│ │ Best regards,                           │ │
-│ │ [Your Name]                             │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Attachments: 📎 SalesQuote_SQ001.pdf      │
-│                                             │
-│ [Send] [Save Draft] [Discard]              │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../assets/New%20Message%20-%20Outlook.png)
 
 ## E-mail Bewerking Mogelijkheden
 

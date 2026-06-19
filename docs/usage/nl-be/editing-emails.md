@@ -77,26 +77,7 @@ Na het klikken op "Bewerken in Outlook":
 ### Outlook-opstelvenster
 Het .eml-bestand opent in Outlook met:
 
-```
-┌─ Nieuw bericht - Outlook ───────────────────┐
-│ Van: uw-e-mail@bedrijf.be                   │
-│ Aan: klant@voorbeeld.be                     │
-│ Onderwerp: Verkoopofferte VO001             │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Geachte klant,                          │ │
-│ │                                         │ │
-│ │ Bijgaand ontvangt u onze offerte VO001. │ │
-│ │                                         │ │
-│ │ Met vriendelijke groet,                 │ │
-│ │ [Uw naam]                               │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Bijlagen: 📎 Verkoopofferte_VO001.pdf     │
-│                                             │
-│ [Verzenden] [Concept opslaan] [Verwijderen] │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## E-mailbewerkingsfuncties
 

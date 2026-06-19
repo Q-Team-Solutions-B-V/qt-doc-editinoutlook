@@ -77,26 +77,7 @@ Etter klikk på «Rediger i Outlook»:
 ### Outlook-skrivevindu
 .eml-filen åpnes i Outlook med:
 
-```
-┌─ Ny melding - Outlook ──────────────────────┐
-│ Fra: din-epost@bedrift.no                   │
-│ Til: kunde@eksempel.no                      │
-│ Emne: Salgstilbud ST001                     │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Kjære kunde,                            │ │
-│ │                                         │ │
-│ │ Vedlagt finner du vårt tilbud ST001.   │ │
-│ │                                         │ │
-│ │ Med vennlig hilsen,                    │ │
-│ │ [Ditt navn]                             │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Vedlegg: 📎 Salgstilbud_ST001.pdf         │
-│                                             │
-│ [Send] [Lagre utkast] [Forkast]            │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Funksjoner for e-postredigering
 

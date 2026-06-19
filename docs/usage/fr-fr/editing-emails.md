@@ -77,27 +77,7 @@ Après avoir cliqué sur « Modifier dans Outlook » :
 ### Fenêtre de rédaction Outlook
 Le fichier .eml s'ouvre dans Outlook avec :
 
-```
-┌─ Nouveau message - Outlook ─────────────────┐
-│ De : votre-email@entreprise.fr              │
-│ À : client@exemple.fr                       │
-│ Objet : Devis de vente DV001                │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Madame, Monsieur,                       │ │
-│ │                                         │ │
-│ │ Veuillez trouver ci-joint notre        │ │
-│ │ devis DV001.                            │ │
-│ │                                         │ │
-│ │ Cordialement,                           │ │
-│ │ [Votre nom]                             │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Pièces jointes : 📎 DevisVente_DV001.pdf  │
-│                                             │
-│ [Envoyer] [Enreg. brouillon] [Ignorer]    │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Fonctionnalités d'édition des e-mails
 

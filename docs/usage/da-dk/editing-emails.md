@@ -77,26 +77,7 @@ Efter klik på „Rediger i Outlook":
 ### Outlook-skrivevindue
 .eml-filen åbnes i Outlook med:
 
-```
-┌─ Ny besked - Outlook ───────────────────────┐
-│ Fra: din-email@virksomhed.dk               │
-│ Til: kunde@eksempel.dk                      │
-│ Emne: Salgstilbud ST001                     │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Kære kunde,                             │ │
-│ │                                         │ │
-│ │ Vedlagt finder du vores tilbud ST001.  │ │
-│ │                                         │ │
-│ │ Med venlig hilsen,                     │ │
-│ │ [Dit navn]                              │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Vedhæftninger: 📎 Salgstilbud_ST001.pdf  │
-│                                             │
-│ [Send] [Gem kladde] [Kassér]               │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Funktioner til redigering af e-mails
 

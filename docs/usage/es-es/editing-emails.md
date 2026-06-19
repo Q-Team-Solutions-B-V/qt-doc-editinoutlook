@@ -77,26 +77,7 @@ Después de hacer clic en «Editar en Outlook»:
 ### Ventana de redacción de Outlook
 El archivo .eml se abre en Outlook con:
 
-```
-┌─ Nuevo mensaje - Outlook ───────────────────┐
-│ De: su-correo@empresa.es                    │
-│ Para: cliente@ejemplo.es                    │
-│ Asunto: Oferta de venta OV001               │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Estimado/a cliente,                     │ │
-│ │                                         │ │
-│ │ Adjunto encontrará nuestra oferta OV001.│ │
-│ │                                         │ │
-│ │ Atentamente,                            │ │
-│ │ [Su nombre]                             │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Archivos adjuntos: 📎 OfertaVenta_OV001.pdf│
-│                                             │
-│ [Enviar] [Guardar borrador] [Descartar]    │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Funciones de edición de correos electrónicos
 

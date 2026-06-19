@@ -77,26 +77,7 @@ Po kliknięciu „Edytuj w programie Outlook":
 ### Okno tworzenia wiadomości Outlook
 Plik .eml otwiera się w programie Outlook z:
 
-```
-┌─ Nowa wiadomość - Outlook ──────────────────┐
-│ Od: twoj-email@firma.pl                     │
-│ Do: klient@przyklad.pl                      │
-│ Temat: Oferta sprzedaży OS001               │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Szanowny Kliencie,                      │ │
-│ │                                         │ │
-│ │ W załączeniu przesyłamy ofertę OS001.  │ │
-│ │                                         │ │
-│ │ Z poważaniem,                           │ │
-│ │ [Twoje imię i nazwisko]                 │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Załączniki: 📎 OfertaSprzedazy_OS001.pdf  │
-│                                             │
-│ [Wyślij] [Zapisz wersję roboczą] [Odrzuć]  │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## Funkcje edycji wiadomości e-mail
 

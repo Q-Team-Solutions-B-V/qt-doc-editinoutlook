@@ -77,26 +77,7 @@ Nach dem Klicken auf „In Outlook bearbeiten":
 ### Outlook-Verfassensfenster
 Die .eml-Datei öffnet sich in Outlook mit:
 
-```
-┌─ Neue Nachricht - Outlook ──────────────────┐
-│ Von: ihre-email@unternehmen.de              │
-│ An: kunde@beispiel.de                       │
-│ Betreff: Verkaufsangebot VA001              │
-│                                             │
-│ ┌─────────────────────────────────────────┐ │
-│ │ Sehr geehrte Damen und Herren,          │ │
-│ │                                         │ │
-│ │ anbei erhalten Sie unser Angebot VA001. │ │
-│ │                                         │ │
-│ │ Mit freundlichen Grüßen,               │ │
-│ │ [Ihr Name]                              │ │
-│ └─────────────────────────────────────────┘ │
-│                                             │
-│ Anhänge: 📎 Verkaufsangebot_VA001.pdf     │
-│                                             │
-│ [Senden] [Entwurf speichern] [Verwerfen]   │
-└─────────────────────────────────────────────┘
-```
+![New Message - Outlook](../../assets/New%20Message%20-%20Outlook.png)
 
 ## E-Mail-Bearbeitungsfunktionen
 
