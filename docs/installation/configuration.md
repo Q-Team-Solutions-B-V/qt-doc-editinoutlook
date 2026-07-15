@@ -51,44 +51,6 @@ Edit in Outlook uses standard Business Central email templates with extensions.
    - Department-specific templates
    - Customer-specific layouts
 
-#### Template Configuration Steps
-1. **Go to Email Templates** in Business Central
-2. **Select relevant template**
-3. **Edit template content**:
-   ```html
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <title>%1</title> <!-- Document Type -->
-   </head>
-   <body>
-       <h1>%2</h1>     <!-- Company Name -->
-       <p>Dear %3,</p> <!-- Customer Name -->
-       
-       <p>Please find attached %4.</p> <!-- Document Description -->
-       
-       <p>Best regards,<br/>
-       %5</p>          <!-- User Name -->
-   </body>
-   </html>
-   ```
-
-### Template Variables
-Supported placeholders in templates:
-
-| Variable | Description | Usage |
-|----------|-------------|-------|
-| `%1` | Document Type | Sales Quote, Invoice, etc. |
-| `%2` | Company Name | Company name |
-| `%3` | Customer/Vendor Name | Recipient name |
-| `%4` | Document Description | "Sales Quote No. SQ001" |
-| `%5` | User Name | Sender name |
-| `%6` | Document Date | Document date |
-| `%7` | Due Date | Due date (where relevant) |
-| `%8` | Amount | Total amount |
-| `%9` | Currency Code | Currency code |
-| `%10` | Custom Field 1 | Configurable field |
-
 ## Document Type Configuration
 
 ### Report Selection Setup
@@ -115,8 +77,11 @@ Configure which reports are used for each document type:
 | Sales Quote | Report 1304 | Standard, Detailed, Simple |
 | Sales Order | Report 1305 | Standard, Packing Slip |
 | Sales Invoice | Report 1306 | Standard, Detailed, Pro Forma |
+| Sales - Shipment | Report 208 | Standard, QTEAM Shipment Email Body |
 | Purchase Order | Report 405 | Standard, Simplified |
 | Warehouse Shipment | Report 5795 | Standard, Compact |
+
+> **Note — Sales - Shipment custom layout**: The **QTEAM Shipment Email Body** layout is a custom Word layout (`SalesShipmentEmail.docx`) added via a report extension to the standard Sales - Shipment report. It is used as the email body when sending shipment confirmations via Edit in Outlook (Report Selection Usage: `S.Shipment`). To activate it, go to **Report Selection - Sales**, set Usage to **Shipment**, and select the **QTEAM Shipment Email Body** layout.
 
 ## User Permissions Configuration
 
@@ -327,8 +292,11 @@ Configureer welke rapporten gebruikt worden voor elk documenttype:
 | Sales Quote | Report 1304 | Standard, Detailed, Simple |
 | Sales Order | Report 1305 | Standard, Packing Slip |
 | Sales Invoice | Report 1306 | Standard, Detailed, Pro Forma |
+| Sales - Shipment | Report 208 | Standard, QTEAM Shipment Email Body |
 | Purchase Order | Report 405 | Standard, Simplified |
 | Warehouse Shipment | Report 5795 | Standard, Compact |
+
+> **Opmerking — Sales - Shipment aangepaste layout**: De **QTEAM Shipment Email Body** layout is een aangepaste Word layout (`SalesShipmentEmail.docx`) toegevoegd via een report extension aan het standaard Sales - Shipment rapport. Deze wordt gebruikt als e-mail body bij het verzenden van verzendbevestigingen via Edit in Outlook (Report Selection Usage: `S.Shipment`). Om deze te activeren, ga naar **Report Selection - Sales**, stel Usage in op **Shipment** en selecteer de **QTEAM Shipment Email Body** layout.
 
 ## Gebruikersrechten Configuratie
 
