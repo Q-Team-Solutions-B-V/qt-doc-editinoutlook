@@ -46,6 +46,7 @@ This page describes how to use Edit in Outlook to edit and send Business Central
 | **Sales Orders** | Sales Order (44, 45, 46) | Send Email → Edit in Outlook |
 | **Sales Invoices** | Sales Invoice (132, 133, 134) | Send Email → Edit in Outlook |
 | **Posted Sales Invoices** | Posted Sales Invoice (132) | Send Email → Edit in Outlook |
+| **Posted Sales Shipments** | Posted Sales Shipment (130, 131) | Send Email → Edit in Outlook |
 | **Sales Credit Memos** | Sales Credit Memo (114, 115) | Send Email → Edit in Outlook |
 
 ### Purchase Documents

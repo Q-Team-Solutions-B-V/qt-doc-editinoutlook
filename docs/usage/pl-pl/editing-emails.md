@@ -46,6 +46,7 @@ Ta strona opisuje, jak używać Edit in Outlook do edytowania i wysyłania wiado
 | **Zamówienia sprzedaży** | Zamówienie sprzedaży (44, 45, 46) | Wyślij e-mail → Edytuj w programie Outlook |
 | **Faktury sprzedaży** | Faktura sprzedaży (132, 133, 134) | Wyślij e-mail → Edytuj w programie Outlook |
 | **Zaksięgowane faktury sprzedaży** | Zaksięgowana faktura sprzedaży (132) | Wyślij e-mail → Edytuj w programie Outlook |
+| **Zaksięgowane dostawy sprzedaży** | Zaksięgowana dostawa sprzedaży (130, 131) | Wyślij e-mail → Edytuj w programie Outlook |
 | **Faktury korygujące sprzedaży** | Faktura korygująca sprzedaży (114, 115) | Wyślij e-mail → Edytuj w programie Outlook |
 
 ### Dokumenty zakupu

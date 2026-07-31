@@ -46,6 +46,7 @@ Auf dieser Seite wird beschrieben, wie Sie Edit in Outlook verwenden, um E-Mails
 | **Verkaufsaufträge** | Verkaufsauftrag (44, 45, 46) | E-Mail senden → In Outlook bearbeiten |
 | **Verkaufsrechnungen** | Verkaufsrechnung (132, 133, 134) | E-Mail senden → In Outlook bearbeiten |
 | **Gebuchte Verkaufsrechnungen** | Gebuchte Verkaufsrechnung (132) | E-Mail senden → In Outlook bearbeiten |
+| **Gebuchte Verkaufslieferungen** | Gebuchte Verkaufslieferung (130, 131) | E-Mail senden → In Outlook bearbeiten |
 | **Verkaufsgutschriften** | Verkaufsgutschrift (114, 115) | E-Mail senden → In Outlook bearbeiten |
 
 ### Einkaufsdokumente

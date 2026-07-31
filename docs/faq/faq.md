@@ -69,7 +69,7 @@ The functionality is identical, only the installation method differs.
 **A**: **Supported documents**:
 - ✅ Sales Quotes, Orders, Invoices, Credit Memos
 - ✅ Purchase Orders, Invoices, Credit Memos  
-- ✅ Posted Invoices, Shipments
+- ✅ Posted Sales Invoices, Posted Sales Shipments
 - ✅ Warehouse Shipment documents
 - ⚠️ Service Documents (basic support)
 - ❌ Custom reports (not yet supported)

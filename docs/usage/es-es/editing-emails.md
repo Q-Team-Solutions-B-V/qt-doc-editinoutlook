@@ -46,6 +46,7 @@ Esta página describe cómo usar Edit in Outlook para editar y enviar correos el
 | **Pedidos de venta** | Pedido de venta (44, 45, 46) | Enviar correo → Editar en Outlook |
 | **Facturas de venta** | Factura de venta (132, 133, 134) | Enviar correo → Editar en Outlook |
 | **Facturas de venta registradas** | Factura de venta registrada (132) | Enviar correo → Editar en Outlook |
+| **Albaranes de venta registrados** | Albarán de venta registrado (130, 131) | Enviar correo → Editar en Outlook |
 | **Abonos de venta** | Abono de venta (114, 115) | Enviar correo → Editar en Outlook |
 
 ### Documentos de compra

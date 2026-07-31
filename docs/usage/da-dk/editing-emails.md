@@ -46,6 +46,7 @@ Denne side beskriver, hvordan du bruger Edit in Outlook til at redigere og sende
 | **Salgsordrer** | Salgsordre (44, 45, 46) | Send e-mail → Rediger i Outlook |
 | **Salgsfakturaer** | Salgsfaktura (132, 133, 134) | Send e-mail → Rediger i Outlook |
 | **Bogførte salgsfakturaer** | Bogført salgsfaktura (132) | Send e-mail → Rediger i Outlook |
+| **Bogførte salgsleverancer** | Bogført salgsleverance (130, 131) | Send e-mail → Rediger i Outlook |
 | **Salgskreditnotaer** | Salgskreditnota (114, 115) | Send e-mail → Rediger i Outlook |
 
 ### Indkøbsdokumenter

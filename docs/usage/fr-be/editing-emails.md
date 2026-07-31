@@ -46,6 +46,7 @@ Cette page décrit comment utiliser Edit in Outlook pour modifier et envoyer des
 | **Commandes de vente** | Commande de vente (44, 45, 46) | Envoyer e-mail → Modifier dans Outlook |
 | **Factures de vente** | Facture de vente (132, 133, 134) | Envoyer e-mail → Modifier dans Outlook |
 | **Factures de vente validées** | Facture de vente validée (132) | Envoyer e-mail → Modifier dans Outlook |
+| **Expéditions de vente validées** | Expédition de vente validée (130, 131) | Envoyer e-mail → Modifier dans Outlook |
 | **Avoirs de vente** | Avoir de vente (114, 115) | Envoyer e-mail → Modifier dans Outlook |
 
 ### Documents d'achat

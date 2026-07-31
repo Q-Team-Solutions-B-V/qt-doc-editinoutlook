@@ -46,6 +46,7 @@ Op deze pagina wordt beschreven hoe u Edit in Outlook gebruikt om e-mails van Bu
 | **Verkooporders** | Verkooporder (44, 45, 46) | E-mail verzenden → Bewerken in Outlook |
 | **Verkoopfacturen** | Verkoopfactuur (132, 133, 134) | E-mail verzenden → Bewerken in Outlook |
 | **Geboekte verkoopfacturen** | Geboekte verkoopfactuur (132) | E-mail verzenden → Bewerken in Outlook |
+| **Geboekte verkoopverzendingen** | Geboekte verkoopverzending (130, 131) | E-mail verzenden → Bewerken in Outlook |
 | **Verkoopcreditnota's** | Verkoopcreditnota (114, 115) | E-mail verzenden → Bewerken in Outlook |
 
 ### Inkoopdocumenten
