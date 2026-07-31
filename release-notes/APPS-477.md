@@ -1,12 +1,15 @@
 ---
-jira: APPS-477
-title: AI-readiness audit — GDPR-classificaties gecorrigeerd en nieuw API READ-rechtenpakket
+change: APPS-477
+title: GDPR classification corrections and new read-only API permission set
 type: security
 audience: administrator
-includeInReleaseNotes: true
 ---
 
-## Release notes
+## GDPR classification corrections and new read-only API permission set
 
-E-mailadressen en gebruikers-ID's die worden opgeslagen tijdens het "Edit in Outlook"-proces zijn nu correct geclassificeerd als persoonsgegevens conform de GDPR-richtlijnen. Daarnaast is een nieuw, alleen-lezen rechtenpakket (`QTEAM EIO API READ`) toegevoegd voor koppelingen en AI-integraties die uitsluitend leestoegang tot de app-data nodig hebben, zonder schrijf- of verwijderrechten.
+Email addresses and user IDs stored during the Edit in Outlook process are now correctly classified as personal data in accordance with GDPR guidelines. A new read-only permission set (`QTEAM EIO API READ`) has been added for integrations and AI connections that require read-only access to app data, without write or delete permissions.
+
+## Technical notes
+
+No additional technical notes.
 
