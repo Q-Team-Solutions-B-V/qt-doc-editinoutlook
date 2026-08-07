@@ -63,6 +63,16 @@ Esta página describe las limitaciones, restricciones y consideraciones conocida
 
 > **Nota**: La configuración de la organización puede restringir aún más estos límites
 
+### Posición de la firma automática
+
+Al abrir un archivo `.eml` generado en New Outlook (Outlook para Microsoft 365), Outlook inserta la firma automática de **mensajes nuevos** **después de la primera línea** del cuerpo del correo electrónico en lugar de al final.
+
+Este es un comportamiento conocido de New Outlook al abrir mensajes no enviados y no se puede cambiar mediante el formato del correo electrónico.
+
+> **Solución alternativa**: Desactive la firma automática para mensajes nuevos en New Outlook y agregue el texto de la firma directamente en la plantilla de correo electrónico de Business Central.
+>
+> En una versión futura de Edit in Outlook, estará disponible la integración directa mediante la API de Microsoft Graph. Esta integración no presenta esta limitación.
+
 ## Limitaciones por tipo de documento
 
 ### Compatible frente a no compatible

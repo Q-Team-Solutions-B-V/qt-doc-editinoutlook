@@ -63,6 +63,16 @@ Op deze pagina worden de bekende beperkingen, restricties en overwegingen beschr
 
 > **Opmerking**: Organisatie-instellingen kunnen deze limieten verder beperken
 
+### Positie van de automatische handtekening
+
+Bij het openen van een gegenereerd `.eml`-bestand in New Outlook (Outlook voor Microsoft 365) voegt Outlook de automatische handtekening voor **nieuwe berichten** in **na de eerste regel** van de e-mailtekst in plaats van onderaan.
+
+Dit is een bekend gedrag van New Outlook bij het openen van onverzonden berichten en kan niet worden gewijzigd via e-mailopmaak.
+
+> **Tijdelijke oplossing**: Zet de automatische handtekening voor nieuwe berichten uit in New Outlook en voeg de handtekeningtekst rechtstreeks toe aan de e-mailsjabloon in Business Central.
+>
+> In een volgende versie van Edit in Outlook is rechtstreekse integratie via de Microsoft Graph API beschikbaar. Daarin speelt dit probleem niet.
+
 ## Documenttypebeperkingen
 
 ### Ondersteund versus niet-ondersteund

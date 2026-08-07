@@ -63,6 +63,16 @@ Ta strona opisuje znane ograniczenia, restrykcje i kwestie do rozważenia podcza
 
 > **Uwaga**: Ustawienia organizacji mogą dodatkowo ograniczać te limity
 
+### Pozycja automatycznego podpisu
+
+Po otwarciu wygenerowanego pliku `.eml` w programie New Outlook (Outlook dla Microsoft 365) program Outlook wstawia automatyczny podpis dla **nowych wiadomości** **po pierwszym wierszu** treści wiadomości e-mail, a nie na dole.
+
+Jest to znane zachowanie programu New Outlook podczas otwierania niewysłanych wiadomości i nie można go zmienić poprzez formatowanie wiadomości e-mail.
+
+> **Obejście**: Wyłącz automatyczny podpis dla nowych wiadomości w programie New Outlook i dodaj tekst podpisu bezpośrednio do szablonu wiadomości e-mail w Business Central.
+>
+> W przyszłej wersji Edit in Outlook dostępna będzie bezpośrednia integracja za pośrednictwem interfejsu API Microsoft Graph. Ta integracja nie ma tego ograniczenia.
+
 ## Ograniczenia typów dokumentów
 
 ### Obsługiwane a nieobsługiwane

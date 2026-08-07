@@ -63,6 +63,16 @@ Cette page décrit les limitations, restrictions et considérations connues lors
 
 > **Remarque** : Les paramètres de l'organisation peuvent restreindre davantage ces limites
 
+### Position de la signature automatique
+
+Lors de l'ouverture d'un fichier `.eml` généré dans New Outlook (Outlook pour Microsoft 365), Outlook insère la signature automatique des **nouveaux messages** **après la première ligne** du corps de l'e-mail plutôt qu'en bas.
+
+Ce comportement est connu de New Outlook lors de l'ouverture de messages non envoyés et ne peut pas être modifié via la mise en forme de l'e-mail.
+
+> **Solution de contournement** : Désactivez la signature automatique pour les nouveaux messages dans New Outlook et ajoutez le texte de la signature directement dans le modèle d'e-mail de Business Central.
+>
+> Dans une prochaine version d'Edit in Outlook, une intégration directe via l'API Microsoft Graph sera disponible. Cette intégration ne présente pas cette limitation.
+
 ## Limitations par type de document
 
 ### Pris en charge vs. non pris en charge

@@ -63,6 +63,16 @@ Denne siden beskriver de kjente begrensningene, restriksjonene og hensynene ved 
 
 > **Merk**: Organisasjonsinnstillinger kan ytterligere begrense disse grensene
 
+### Plassering av automatisk signatur
+
+Når du åpner en generert `.eml`-fil i New Outlook (Outlook for Microsoft 365), setter Outlook inn den automatiske signaturen for **nye meldinger** **etter den første linjen** i e-postteksten i stedet for nederst.
+
+Dette er kjent atferd i New Outlook når usendte meldinger åpnes, og kan ikke endres gjennom e-postformatering.
+
+> **Løsning**: Deaktiver den automatiske signaturen for nye meldinger i New Outlook og legg til signaturteksten direkte i e-postmalen i Business Central.
+>
+> I en fremtidig versjon av Edit in Outlook vil direkte integrering via Microsoft Graph API være tilgjengelig. Denne integrasjonen har ikke denne begrensningen.
+
 ## Dokumenttypebegrensninger
 
 ### Støttet vs. ikke støttet

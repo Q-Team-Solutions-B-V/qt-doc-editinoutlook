@@ -63,6 +63,16 @@ This page describes the known limitations, restrictions and considerations when 
 
 > **Note**: Organization settings may further restrict these limits
 
+### Automatic Signature Position
+
+When opening a generated `.eml` file in New Outlook (Outlook for Microsoft 365), Outlook inserts the automatic **new messages** signature after the **first line** of the email body instead of at the bottom.
+
+This is a known behaviour of New Outlook when opening unsent messages and cannot be changed through email formatting.
+
+> **Workaround**: Disable the automatic signature for new messages in New Outlook and add the signature text directly to the email template in Business Central instead.
+>
+> In a future version of Edit in Outlook, direct integration via Microsoft Graph API will be available. This integration does not have this limitation.
+
 ## Document Type Limitations
 
 ### Supported vs Unsupported

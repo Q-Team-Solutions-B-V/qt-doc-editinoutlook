@@ -63,6 +63,16 @@ Auf dieser Seite werden die bekannten Einschränkungen, Beschränkungen und Übe
 
 > **Hinweis**: Organisationseinstellungen können diese Limits weiter einschränken
 
+### Position der automatischen Signatur
+
+Beim Öffnen einer generierten `.eml`-Datei in New Outlook (Outlook für Microsoft 365) fügt Outlook die automatische Signatur für **neue Nachrichten** **nach der ersten Zeile** des E-Mail-Texts ein, statt unten.
+
+Dies ist ein bekanntes Verhalten von New Outlook beim Öffnen ungesendeter Nachrichten und kann nicht durch E-Mail-Formatierung geändert werden.
+
+> **Problemumgehung**: Deaktivieren Sie die automatische Signatur für neue Nachrichten in New Outlook und fügen Sie den Signaturtext stattdessen direkt zur E-Mail-Vorlage in Business Central hinzu.
+>
+> In einer zukünftigen Version von Edit in Outlook wird eine direkte Integration über die Microsoft Graph API verfügbar sein. Bei dieser Integration tritt dieses Problem nicht auf.
+
 ## Dokumenttyp-Einschränkungen
 
 ### Unterstützt vs. nicht unterstützt
