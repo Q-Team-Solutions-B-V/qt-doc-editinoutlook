@@ -1,443 +1,558 @@
 # Q-Team Solutions Edit in Outlook - Extensibility Guide
 
-## Overview
+This guide shows how to create a separate Business Central extension that adds **Edit in Outlook** to a page where it is not available by default.
 
-The **Q-Team Solutions Edit in Outlook** extension for Microsoft Dynamics 365 Business Central provides various capabilities for third parties to extend the functionality. This document describes all available Integration Events and other extensibility points.
+For this example, we will add the action to the **Customer Card**.
 
-## Integration Events
+The custom extension uses the public functionality provided by the **Edit In Outlook** app, so no changes to the Edit In Outlook app itself are required.
 
-The app provides various Integration Events that allow third parties to customize or extend functionality:
+## 1. Create a new AL project
 
-### QTEAMEIOEmailFunctions Codeunit (ID: 11196255)
+Open Visual Studio Code and run:
 
-#### OnBeforeGenerateEML
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 552)
-
-```al
-[IntegrationEvent(false, false)]
-local procedure OnBeforeGenerateEML(EmailMessageId: Guid; var IsHandled: Boolean)
+```text
+AL: Go!
 ```
 
-**Purpose:** Called before an EML file is generated
-**Parameters:**
-- `EmailMessageId`: GUID of the email message
-- `IsHandled`: Set to `true` to prevent default processing
+Choose a name for your extension, for example:
 
-**Usage:** Implement custom logic for EML generation or add extra validations.
-
-#### OnAfterGenerateEML
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 572)
-
-```al
-[IntegrationEvent(false, false)]
-local procedure OnAfterGenerateEML(FileName: Text; FileContent: Instream)
+```text
+EiO-extender
 ```
 
-**Purpose:** Called after an EML file has been generated
-**Parameters:**
-- `FileName`: Name of the generated file
-- `FileContent`: InStream with the file content
+When asked for the runtime version, select:
 
-**Usage:** Perform post-processing on generated EML files, such as logging or archiving.
-
-#### OnBeforeGenerateEMLFilePostedShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 557)
-
-```al
-[IntegrationEvent(false, false)]
-local procedure OnBeforeGenerateEMLFilePostedShipment(var OnBeforeGenerateEMLFilePostedShipment: Record "Posted Whse. Shipment Header"; var IsHandled: Boolean)
+```text
+17.0
 ```
 
-**Purpose:** Called before an EML file is generated for a posted warehouse shipment
-**Parameters:**
-- `OnBeforeGenerateEMLFilePostedShipment`: Record of the posted warehouse shipment
-- `IsHandled`: Set to `true` to prevent default processing
+Runtime `17.0` is used for Business Central 28.
 
-**Usage:** Implement custom logic for warehouse shipment emails.
+Next, choose the environment you want to develop against:
 
-#### OnAfterGenerateEMLFilePostedShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 577)
+* **Microsoft cloud sandbox** for Business Central SaaS.
+* **Your own server** for an On-Premise or locally hosted environment.
 
-```al
-[IntegrationEvent(false, false)]
-local procedure OnAfterGenerateEMLFilePostedShipment(FileName: Text; FileContent: Instream)
+## 2. Add the Edit In Outlook dependency
+
+Open the generated `app.json` file and add **Edit In Outlook** as a dependency:
+
+```json
+"dependencies": [
+    {
+        "id": "0e9ac084-9f49-46d3-b3d1-224b4e7dba0a",
+        "name": "Edit In Outlook",
+        "publisher": "Q-Team Solutions",
+        "version": "28.0.46296.0"
+    }
+]
 ```
 
-**Purpose:** Called after an EML file has been generated for a posted warehouse shipment
-**Parameters:**
-- `FileName`: Name of the generated file
-- `FileContent`: InStream with the file content
+This gives your extension access to the public objects and procedures exposed by Edit In Outlook.
 
-#### OnBeforeGenerateEMLFileShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 562)
+Make sure the object ID range is available for your own extension. Do not reuse the object range of the Edit In Outlook app.
 
-```al
-[IntegrationEvent(false, false)]
-local procedure OnBeforeGenerateEMLFileShipment(var WarehouseShipmentHeader: Record "Warehouse Shipment Header"; var IsHandled: Boolean)
-```
+## 3. Configure `launch.json`
 
-**Purpose:** Called before an EML file is generated for a warehouse shipment
-**Parameters:**
-- `WarehouseShipmentHeader`: Record of the warehouse shipment
-- `IsHandled`: Set to `true` to prevent default processing
+Next, configure `.vscode/launch.json` so the project connects to the Business Central environment where Edit In Outlook is installed.
 
-#### OnAfterGenerateEMLFileShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 582)
+For a cloud sandbox, for example:
 
-```al
-[IntegrationEvent(false, false)]
-local procedure OnAfterGenerateEMLFileShipment(FileName: Text; FileContent: Instream)
-```
-
-**Purpose:** Called after an EML file has been generated for a warehouse shipment
-**Parameters:**
-- `FileName`: Name of the generated file
-- `FileContent`: InStream with the file content
-
-#### OnBeforeGenerateEMlFromList
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 567)
-
-```al
-[IntegrationEvent(false, false)]
-local procedure OnBeforeGenerateEMlFromList(RecVariant: Variant; ReportSelectionUsage: Enum "Report Selection Usage"; Subject: Text; ToEmail: Text; var IsHandled: Boolean)
-```
-
-**Purpose:** Called before an EML is generated from a list
-**Parameters:**
-- `RecVariant`: Variant of the record
-- `ReportSelectionUsage`: Enum for report selection usage
-- `Subject`: Email subject
-- `ToEmail`: Email address of recipient
-- `IsHandled`: Set to `true` to prevent default processing
-
-#### OnAfterGenerateEMLFromList
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 587)
-
-```al
-[IntegrationEvent(false, false)]
-local procedure OnAfterGenerateEMLFromList(FileName: Text; FileContent: Instream)
-```
-
-**Purpose:** Called after an EML has been generated from a list
-**Parameters:**
-- `FileName`: Name of the generated file
-- `FileContent`: InStream with the file content
-
-## Public Procedures
-
-The app provides various public procedures that can be called by third parties:
-
-### QTEAMEIOEmailFunctions Codeunit
-
-#### GenerateEMLFileEmailFromEditor
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 3)
-
-```al
-procedure GenerateEMLFileEmailFromEditor(VariantRecRef: Variant; ReportUsage: Integer)
-```
-
-**Purpose:** Generates an EML file from the email editor
-**Parameters:**
-- `VariantRecRef`: Variant of a record reference
-- `ReportUsage`: Integer for report usage
-
-#### GenerateEMLV2
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 106)
-
-```al
-procedure GenerateEMLV2(EmailMessageId: Guid)
-```
-
-**Purpose:** Generates an EML file (version 2)
-**Parameters:**
-- `EmailMessageId`: GUID of the email message
-
-#### GenerateEML
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 165)
-
-```al
-procedure GenerateEML(VariantRecRef: Variant; ReportUsage: Integer; EmailSubject: Text)
-```
-
-**Purpose:** Generates an EML file
-**Parameters:**
-- `VariantRecRef`: Variant of a record reference
-- `ReportUsage`: Integer for report usage
-- `EmailSubject`: Email subject
-
-#### GenerateEMLFile
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 217)
-
-```al
-procedure GenerateEMLFile(var QTEAMEIOEmailItem: Record "QTEAM EIO Email Item")
-```
-
-**Purpose:** Generates an EML file from an email item
-**Parameters:**
-- `QTEAMEIOEmailItem`: Record of QTEAM EIO Email Item
-
-#### GenerateEMLFilePostedShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 299)
-
-```al
-procedure GenerateEMLFilePostedShipment(var PostedWhseShipmentHeader: Record "Posted Whse. Shipment Header")
-```
-
-**Purpose:** Generates an EML file for a posted warehouse shipment
-**Parameters:**
-- `PostedWhseShipmentHeader`: Record of the posted warehouse shipment header
-
-#### GenerateEMLFileShipment
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 368)
-
-```al
-procedure GenerateEMLFileShipment(var WarehouseShipmentHeader: Record "Warehouse Shipment Header")
-```
-
-**Purpose:** Generates an EML file for a warehouse shipment
-**Parameters:**
-- `WarehouseShipmentHeader`: Record of the warehouse shipment header
-
-#### GenerateEMlFromList
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 437)
-
-```al
-procedure GenerateEMlFromList(RecVariant: Variant; ReportSelectionUsage: Enum "Report Selection Usage"; Subject: Text; ToEmail: Text) BodyText: Text
-```
-
-**Purpose:** Generates an EML from a list and returns the body text
-**Parameters:**
-- `RecVariant`: Variant of the record
-- `ReportSelectionUsage`: Enum for report selection usage
-- `Subject`: Email subject
-- `ToEmail`: Email address of recipient
-**Returns:** Body text of the email
-
-#### GetReportInformation
-**Location:** `src/codeunit/QTEAMEIOEmailFunctions.codeunit.al` (line 509)
-
-```al
-procedure GetReportInformation(var ReportId: Integer; var EmailBodyLayoutName: Text[250]; ReportSelectionUsage: Enum "Report Selection Usage"; IsAttachment: Boolean)
-```
-
-**Purpose:** Retrieves report information
-**Parameters:**
-- `ReportId`: Report ID (by reference)
-- `EmailBodyLayoutName`: Name of the email body layout (by reference)
-- `ReportSelectionUsage`: Enum for report selection usage
-- `IsAttachment`: Boolean indicating if it's an attachment
-
-### QTEAMEIOEmailItemSession Codeunit
-
-#### ProcessEmailItemInBackground
-**Location:** `src/codeunit/QTEAMEIOEmailItemSession.codeunit.al` (line 22)
-
-```al
-procedure ProcessEmailItemInBackground(UserId: Text; DocumentNo: Code[20]; DocumentType: Integer; DocumentRecordId: RecordId)
-```
-
-**Purpose:** Processes an email item in the background
-**Parameters:**
-- `UserId`: User ID
-- `DocumentNo`: Document number
-- `DocumentType`: Document type
-- `DocumentRecordId`: Record ID of the document
-
-### PDF Viewer Procedures
-
-#### LoadPdfViaUrl (QTEAMPDFViewer)
-**Location:** `src/page/QTEAMPDFViewer.page.al` (line 48)
-
-```al
-procedure LoadPdfViaUrl(Url: Text)
-```
-
-**Purpose:** Loads a PDF via a URL
-**Parameters:**
-- `Url`: URL to the PDF file
-
-#### LoadPdfFromBlob (QTEAMPDFViewer)
-**Location:** `src/page/QTEAMPDFViewer.page.al` (line 55)
-
-```al
-procedure LoadPdfFromBlob(Base64Data: Text)
-```
-
-**Purpose:** Loads a PDF from Base64-encoded data
-**Parameters:**
-- `Base64Data`: Base64-encoded PDF data
-
-### DropArea Procedures
-
-#### SetData (QTEAMDropArea)
-**Location:** `src/page/QTEAMDropArea.page.al` (lines 49 and 56)
-
-```al
-procedure SetData(EmailMessageId: Guid);
-procedure SetData(CustomerId: Code[20]; TableId: Integer);
-```
-
-**Purpose:** Sets data for the DropArea functionality
-**Parameters:**
-- Overload 1: `EmailMessageId` - GUID of the email message
-- Overload 2: `CustomerId` - Customer ID and `TableId` - Table ID
-
-## Event Subscribers
-
-The app uses various Event Subscribers that modify how standard Business Central functionality works:
-
-### SaveSalesEmailItem
-**Location:** `src/codeunit/QTEAMEditinOutlookSubs.codeunit.al` (line 6)
-
-Subscribes to: `Table "Report Selections".'OnBeforeSendEmailToCust'`
-
-**Purpose:** Saves sales email item before standard email is sent
-
-### SavePurchasingEmailItem
-**Location:** `src/codeunit/QTEAMEditinOutlookSubs.codeunit.al` (line 36)
-
-Subscribes to: `Table "Report Selections".'OnBeforeSendEmailToVendor'`
-
-**Purpose:** Saves purchasing email item before standard email is sent
-
-### AddInfoToEmailOutbox
-**Location:** `src/codeunit/QTEAMEditinOutlookSubs.codeunit.al` (line 17)
-
-Subscribes to: `Page "Email Editor".'OnAfterGetRecordEvent'`
-
-**Purpose:** Adds extra information to the email outbox
-
-### OnBeforeSendDocumentSendingProfile
-**Location:** `src/codeunit/QTEAMEditinOutlookSubs.codeunit.al` (line 47)
-
-Subscribes to: `Table "Document Sending Profile".OnAfterSend`
-
-**Purpose:** Handles documents sent via Outlook
-
-## Tables and Data Structure
-
-The app introduces several new tables that can be used by third parties:
-
-### QTEAM EIO Email Item
-**Purpose:** Stores email item information for Edit in Outlook functionality
-
-### QTEAM Email Message
-**Purpose:** Stores email message data
-
-### QTEAM Email Message Attachment
-**Purpose:** Stores attachments for email messages
-
-### QTEAM PDF Viewer Setup
-**Purpose:** Configuration for PDF viewer functionality
-
-## Permission Sets
-
-The app provides various permission sets for different license levels:
-- **QTEAMEIOEssentials**: Basic permissions for Essential license
-- **QTEAMEIOPremium**: Extended permissions for Premium license
-- **QTEAMProductKey**: Permissions for product key functionality
-
-## Implementation Guidelines
-
-### Event Subscriber Implementation
-
-To subscribe to the Integration Events, create an Event Subscriber codeunit:
-
-```al
-codeunit 50000 "My EIO Extension"
+```json
 {
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"QTEAM EIO Email Functions", 'OnBeforeGenerateEML', '', false, false)]
-    local procedure OnBeforeGenerateEML(EmailMessageId: Guid; var IsHandled: Boolean)
-    begin
-        // Your custom logic here
-        // Set IsHandled to true to prevent default processing
-    end;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"QTEAM EIO Email Functions", 'OnAfterGenerateEML', '', false, false)]
-    local procedure OnAfterGenerateEML(FileName: Text; FileContent: Instream)
-    begin
-        // Post-processing logic here
-    end;
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "al",
+            "name": "Development",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "Dev",
+            "startupObjectId": 21,
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": true
+        }
+    ]
 }
 ```
 
-### Calling Public Procedures
+Page `21` is the standard **Customer Card**, so it will open automatically after publishing.
+
+Change the environment settings where needed to match your own Business Central environment.
+
+## 4. Download symbols
+
+Once `app.json` and `launch.json` are configured, run:
+
+```text
+AL: Download Symbols
+```
+
+The `.alpackages` folder should now contain the required Microsoft packages and the symbols for Edit In Outlook.
+
+Before continuing, make sure there are no missing-package errors in the project.
+
+## 5. Create the Customer Card extension
+
+Create a new AL file, for example:
+
+```text
+src/CustomerCardExt.PageExt.al
+```
+
+Before connecting anything to Edit In Outlook, first check that your extension can successfully add an action to the Customer Card.
 
 ```al
-codeunit 50001 "My EIO Usage"
+pageextension 50200 "EiO Customer Card Ext." extends "Customer Card"
 {
-    procedure GenerateCustomEmail()
+    actions
+    {
+        addlast(Processing)
+        {
+            action(EiOEditInOutlook)
+            {
+                ApplicationArea = All;
+                Caption = 'Test action';
+                Image = Email;
+                ToolTip = 'This action tests the extensibility of Customer Card.';
+
+                trigger OnAction()
+                begin
+                    Message(
+                        'Extension works for customer %1.',
+                        Rec."No.");
+                end;
+            }
+        }
+    }
+}
+```
+
+Publish the extension with `F5`.
+
+Open a Customer Card and look for the **Test action** under the **Actions** menu.
+
+When you select it, Business Central should show the test message.
+
+If that works, you have confirmed that your custom app can successfully extend the Customer Card.
+
+## 6. Connect the action to Edit In Outlook
+
+Now replace the test action with the actual Edit In Outlook implementation.
+
+For the Customer Card, the extension first creates a standard Business Central `Email Message`. The ID of that message is then passed to Edit In Outlook.
+
+```al
+pageextension 50200 "EiO Customer Card Ext." extends "Customer Card"
+{
+    actions
+    {
+        addlast(Processing)
+        {
+            action(QTEAMEditInOutlook)
+            {
+                ApplicationArea = All;
+                Caption = 'Edit in Outlook';
+                Image = Email;
+                ToolTip = 'Create an email for this customer and download it for editing in Outlook.';
+
+                trigger OnAction()
+                var
+                    EmailMessage: Codeunit "Email Message";
+                    QTeamEmailFunctions: Codeunit "QTEAM EIO Email Functions";
+                    Subject: Text;
+                    Body: Text;
+                    NoEmailErr: Label 'Customer %1 does not have an email address.';
+                    SubjectLbl: Label 'Customer %1 - %2';
+                begin
+                    if Rec."E-Mail" = '' then
+                        Error(NoEmailErr, Rec."No.");
+
+                    Subject := StrSubstNo(
+                        SubjectLbl,
+                        Rec."No.",
+                        Rec.Name);
+
+                    Body := '';
+
+                    EmailMessage.Create(
+                        Rec."E-Mail",
+                        Subject,
+                        Body,
+                        true);
+
+                    QTeamEmailFunctions.EditInOutlook(
+                        EmailMessage.GetId());
+                end;
+            }
+        }
+
+        addlast(Promoted)
+        {
+            actionref(QTEAMEditInOutlookPromoted; QTEAMEditInOutlook)
+            {
+            }
+        }
+    }
+}
+```
+
+The `actionref` also places the action in the main action bar, so users do not have to open the **Actions** menu first.
+
+## 7. How the integration works
+
+The example uses two pieces of functionality:
+
+1. The standard Business Central `Email Message` codeunit creates the email.
+2. `QTEAM EIO Email Functions.EditInOutlook(EmailMessageId)` turns that email into an `.eml` file that can be opened in Outlook.
+
+The flow looks like this:
+
+```text
+Customer Card
+    ↓
+Custom page action
+    ↓
+EmailMessage.Create(...)
+    ↓
+EmailMessage.GetId()
+    ↓
+QTEAM EIO Email Functions.EditInOutlook(...)
+    ↓
+.eml file
+    ↓
+Microsoft Outlook
+```
+
+This allows you to add Edit In Outlook to pages that are not supported by the standard app.
+
+> **Note:** `EditInOutlook()` performs the Edit In Outlook license check itself. If no valid Essential/Premium license or Authenticator key is available, no `.eml` file is generated. If a user interface is available, Edit In Outlook also shows the corresponding license message. You do not need to add a separate license check to your own extension.
+
+## 8. Adapting the example
+
+The same approach can be used on other pages.
+
+Your extension is responsible for deciding what should go into the email, such as:
+
+* the recipient;
+* the subject;
+* the body;
+* any other information you want to include.
+
+In the Customer Card example, the customer's email address is used:
+
+```al
+Rec."E-Mail"
+```
+
+On another page, simply retrieve the appropriate email address from the related record.
+
+Once the `Email Message` has been prepared, pass its ID to Edit In Outlook:
+
+```al
+QTeamEmailFunctions.EditInOutlook(
+    EmailMessage.GetId());
+```
+
+## 9. Optional: Add an email body
+
+The integration is already complete at this point.
+
+In the previous example, however, the email body is empty:
+
+```al
+Body := '';
+
+EmailMessage.Create(
+    Rec."E-Mail",
+    Subject,
+    Body,
+    true);
+```
+
+`EditInOutlook(EmailMessageId)` does not create a body for you. It uses the body that is already present in the `Email Message`.
+
+So if an empty email is fine for your scenario, you can stop here.
+
+If you want to include a predefined email body, there are two common options.
+
+### 9.1 Option 1: Add the body directly in AL
+
+The simplest approach is to define the email body in your extension.
+
+Replace:
+
+```al
+Body := '';
+```
+
+with your own HTML, for example:
+
+```al
+Body :=
+    '<p>Dear ' + Rec.Name + ',</p>' +
+    '<p>This email was created from the Customer Card.</p>' +
+    '<p>Kind regards,</p>';
+```
+
+The relevant part of the action then becomes:
+
+```al
+Subject := StrSubstNo(
+    SubjectLbl,
+    Rec."No.",
+    Rec.Name);
+
+Body :=
+    '<p>Dear ' + Rec.Name + ',</p>' +
+    '<p>This email was created from the Customer Card.</p>' +
+    '<p>Kind regards,</p>';
+
+EmailMessage.Create(
+    Rec."E-Mail",
+    Subject,
+    Body,
+    true);
+
+QTeamEmailFunctions.EditInOutlook(
+    EmailMessage.GetId());
+```
+
+The final `true` passed to `EmailMessage.Create()` tells Business Central that the body contains HTML.
+
+The flow is now:
+
+```text
+Customer Card
+    ↓
+Create recipient, subject and body
+    ↓
+EmailMessage.Create(...)
+    ↓
+EmailMessage.GetId()
+    ↓
+EditInOutlook(...)
+    ↓
+.eml file with email body
+    ↓
+Microsoft Outlook
+```
+
+This option is a good fit when:
+
+* the body can be defined directly in code;
+* users do not need to maintain the template in Business Central;
+* the page only needs a relatively simple email.
+
+A complete example looks like this:
+
+```al
+pageextension 50200 "EiO Customer Card Ext." extends "Customer Card"
+{
+    actions
+    {
+        addlast(Processing)
+        {
+            action(QTEAMEditInOutlook)
+            {
+                ApplicationArea = All;
+                Caption = 'Edit in Outlook';
+                Image = Email;
+                ToolTip = 'Create an email for this customer and download it for editing in Outlook.';
+
+                trigger OnAction()
+                var
+                    EmailMessage: Codeunit "Email Message";
+                    QTeamEmailFunctions: Codeunit "QTEAM EIO Email Functions";
+                    Subject: Text;
+                    Body: Text;
+                    NoEmailErr: Label 'Customer %1 does not have an email address.';
+                    SubjectLbl: Label 'Customer %1 - %2';
+                begin
+                    if Rec."E-Mail" = '' then
+                        Error(NoEmailErr, Rec."No.");
+
+                    Subject := StrSubstNo(
+                        SubjectLbl,
+                        Rec."No.",
+                        Rec.Name);
+
+                    Body :=
+                        '<p>Dear ' + Rec.Name + ',</p>' +
+                        '<p>This email was created using your Edit in Outlook extension.</p>' +
+                        '<p>Kind regards,</p>';
+
+                    EmailMessage.Create(
+                        Rec."E-Mail",
+                        Subject,
+                        Body,
+                        true);
+
+                    QTeamEmailFunctions.EditInOutlook(
+                        EmailMessage.GetId());
+                end;
+            }
+        }
+
+        addlast(Promoted)
+        {
+            actionref(QTEAMEditInOutlookPromoted; QTEAMEditInOutlook)
+            {
+            }
+        }
+    }
+}
+```
+
+### 9.2 Option 2: Use a Business Central email body layout
+
+For document pages such as Sales Orders, you can let Business Central generate the body from its existing **Report Selections** and email body layouts.
+
+For example:
+
+```al
+QTeamEmailFunctions.EditInOutlook(
+    SalesHeader,
+    Enum::"Report Selection Usage"::"S.Order",
+    Subject,
+    CustomerEmail);
+```
+
+The important part here is:
+
+```al
+Enum::"Report Selection Usage"::"S.Order"
+```
+
+This tells Edit In Outlook to use the Report Selections configured for Sales Orders.
+
+From that setup, Edit In Outlook looks for:
+
+* the report marked **Use for Email Attachment**, which is used to create the PDF;
+* the report marked **Use for Email Body**, together with its email body layout.
+
+The flow is:
+
+```text
+Sales Order
+    ↓
+Report Selection Usage::S.Order
+    ↓
+Report Selections
+    ├─ PDF attachment
+    └─ Email body layout
+    ↓
+Edit in Outlook
+    ↓
+.eml file with body and attachment
+```
+
+Here is a complete Sales Order example.
+
+For the sake of clarity within our examples, the action is called **Edit in Outlook Ext** so it can easily be distinguished from the standard Edit In Outlook action that may already be available on the page.
+
+```al
+pageextension 50201 "EiO Sales Order Ext." extends "Sales Order"
+{
+    actions
+    {
+        addlast(Processing)
+        {
+            action(QTEAMEditInOutlook)
+            {
+                ApplicationArea = All;
+                Caption = 'Edit in Outlook Ext';
+                Image = Email;
+                ToolTip = 'Create the Sales Order email and download it for editing in Outlook.';
+
+                trigger OnAction()
+                var
+                    SalesHeader: Record "Sales Header";
+                    QTeamEmailFunctions: Codeunit "QTEAM EIO Email Functions";
+                    SubjectLbl: Label '%1 %2', Comment = '%1 = Page Caption, %2 = Sales Order No.';
+                begin
+                    SalesHeader := Rec;
+                    SalesHeader.SetRecFilter();
+
+                    QTeamEmailFunctions.EditInOutlook(
+                        SalesHeader,
+                        Enum::"Report Selection Usage"::"S.Order",
+                        StrSubstNo(SubjectLbl, CurrPage.Caption, Rec."No."),
+                        GetCustomerEmail());
+                end;
+            }
+        }
+
+        addlast(Promoted)
+        {
+            actionref(QTEAMEditInOutlookPromoted; QTEAMEditInOutlook)
+            {
+            }
+        }
+    }
+
+    local procedure GetCustomerEmail(): Text
     var
-        QTEAMEmailFunctions: Codeunit "QTEAM EIO Email Functions";
-        SalesHeader: Record "Sales Header";
+        Customer: Record Customer;
+        NoEmailErr: Label 'Customer %1 does not have an email address.';
     begin
-        // Get your record
-        SalesHeader.Get(SalesHeader."Document Type"::Order, 'SO001');
-        
-        // Call public procedure
-        QTEAMEmailFunctions.GenerateEML(SalesHeader, 1, 'Custom Subject');
+        if not Customer.Get(Rec."Sell-to Customer No.") then
+            exit('');
+
+        if Customer."E-Mail" = '' then
+            Error(NoEmailErr, Customer."No.");
+
+        exit(Customer."E-Mail");
     end;
 }
 ```
 
-## Best Practices
+### 9.3 Using layouts on a page such as Customer Card
 
-1. **Event Handling**: Always use the `IsHandled` parameter correctly in Before-events
-2. **Error Handling**: Implement proper error handling in your event subscribers
-3. **Performance**: Consider performance when implementing event subscribers
-4. **Testing**: Test your implementations thoroughly, especially when overriding default behavior
-5. **Dependencies**: Make sure your extension has the correct dependencies on the QT Edit in Outlook app
+The Customer Card is a little different.
 
-## Usage Examples
-
-### Custom Email Body Modification
+Sales Orders already have a standard report selection usage:
 
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::"QTEAM EIO Email Functions", 'OnAfterGenerateEML', '', false, false)]
-local procedure CustomizeEmailBody(FileName: Text; FileContent: Instream)
-var
-    TempBlob: Codeunit "Temp Blob";
-    OutStream: OutStream;
-    InStream: InStream;
-    EmailContent: Text;
-begin
-    // Read current content
-    FileContent.ReadText(EmailContent);
-    
-    // Add custom content
-    EmailContent := EmailContent + '<p>Custom footer content</p>';
-    
-    // Write back (implementation depends on your needs)
-end;
+Enum::"Report Selection Usage"::"S.Order"
 ```
 
-### Custom Validation
+There is no equivalent standard value for `Customer`.
+
+So if you want Customer emails to use configurable Business Central layouts, you first need to add your own report selection usage.
+
+For example:
 
 ```al
-[EventSubscriber(ObjectType::Codeunit, Codeunit::"QTEAM EIO Email Functions", 'OnBeforeGenerateEMLFromList', '', false, false)]
-local procedure ValidateBeforeGeneration(RecVariant: Variant; ReportSelectionUsage: Enum "Report Selection Usage"; Subject: Text; ToEmail: Text; var IsHandled: Boolean)
-var
-    SalesHeader: Record "Sales Header";
-begin
-    // Validate if email address is valid
-    if ToEmail = '' then begin
-        Message('Email address is required');
-        IsHandled := true;
-        exit;
-    end;
-    
-    // Add extra business logic
-end;
+enumextension 50201 "EiO Report Usage Ext." extends "Report Selection Usage"
+{
+    value(50200; "Customer")
+    {
+        Caption = 'Customer';
+    }
+}
 ```
 
-## Contact and Support
+After that, you still need to:
 
-For more information about extending the Q-Team Solutions Edit in Outlook app, contact:
+1. Choose or create a report that works with the Customer record.
+2. Configure that report in Report Selections.
+3. Set up the email body layout.
+4. Use the new `Customer` report selection usage when calling Edit In Outlook.
 
-**Q-Team Solutions**
-- Website: [www.q-teamsolutions.com](https://www.q-teamsolutions.com)
-- Email: support@q-teamsolutions.com
+Once that setup is in place, the custom `Customer` value can be used in the same way as `"S.Order"` in the Sales Order example.
 
----
+This is a more advanced scenario, so it is not required if you only want to add a simple Edit In Outlook action to the Customer Card.
 
-*This document is based on version 27.2.45889.1 of the Q-Team Solutions Edit in Outlook extension.*
+### 9.4 Which option should you use?
+
+For most simple custom-page integrations, **Option 1** is enough.
+
+Use **Option 2** when you want users to manage the email body through Business Central report selections and layouts, as they do for Sales Orders and Sales Invoices.
+
+If you do not need a predefined email body at all, you can simply use the basic integration from section 6.
+
+**Next steps:**
+- [API overview](api-overview.md) - Full list of integration events and extensibility points
+- [Authentication](authentication.md) - How licensing and the Authenticator key are checked
