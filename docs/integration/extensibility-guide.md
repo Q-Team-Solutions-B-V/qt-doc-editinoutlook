@@ -1,4 +1,4 @@
-# Q-Team Solutions Edit in Outlook - Extensibility Guide
+# Extensibility Guide
 
 This guide shows how to create a separate Business Central extension that adds **Edit in Outlook** to a page where it is not available by default.
 

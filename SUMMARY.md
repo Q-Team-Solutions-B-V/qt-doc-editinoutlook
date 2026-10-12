@@ -69,6 +69,7 @@
 ## Integration
 * [API overview](docs/integration/api-overview.md)
 * [Authentication](docs/integration/authentication.md)
+* [Extensibility guide](docs/integration/extensibility-guide.md)
 
 ## Troubleshooting
 * [Common errors](docs/troubleshooting/common-errors.md)
