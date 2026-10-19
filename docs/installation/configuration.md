@@ -138,6 +138,10 @@ The selected layout will now be used to generate the email body for the configur
 > **Note:** Customer- or vendor-specific layouts may override the general report selection. If the expected email layout is not applied, you should check the Document Layouts configuration on the relevant Customer or Vendor Card.
 For purchase documents, follow the same procedure using **Report Selections - Purchase**.
 
+> **Note — QTEAM Shipment Email Body:** The **QTEAM Shipment Email Body** layout (`SalesShipmentEmail.docx`) is a custom Word layout added to the standard Sales - Shipment report (Report 208). It is used to generate the email body for shipment confirmations in Edit in Outlook.
+>
+> To configure it, open **Report Selections - Sales**, select the appropriate shipment Usage, and choose **QTEAM Shipment Email Body** in the **Email Body Layout** field.
+
 #### Step 4: Test the Email Layout
 
 After configuring the email layout, verify that it works correctly.
@@ -168,34 +172,20 @@ For more information, refer to the following Microsoft Learn articles:
 ## Document Type Configuration
 
 ### Report Selection Setup
-Configure which reports are used for each document type:
 
-#### Sales Documents
-1. **Go to Report Selection - Sales**
-2. **Configure for each Usage**:
-   - `Email Body`: Template for email body
-   - `Email Attachment`: PDF report for attachment
-   - `Email Layout`: Layout-specific settings
+The process for configuring document attachment layouts is similar to configuring email body layouts.
 
-#### Purchase Documents  
-1. **Go to Report Selection - Purchase**
-2. **Configure analogous to Sales**
+For instructions on importing and approving a layout, follow **[Adding an Email Layout](#adding-an-email-layout)**, specifically Steps 1 and 2.
 
-#### Warehouse Documents
-1. **Go to Report Selection - Warehouse**
-2. **Configure shipment templates**
+> **Note:** Unlike email body layouts, document attachment layouts can use other supported formats, such as RDLC, in addition to Word.
 
-### Document Layout Options
-| Document Type | Default Report | Layout Options |
-|---------------|----------------|----------------|
-| Sales Quote | Report 1304 | Standard, Detailed, Simple |
-| Sales Order | Report 1305 | Standard, Packing Slip |
-| Sales Invoice | Report 1306 | Standard, Detailed, Pro Forma |
-| Sales - Shipment | Report 208 | Standard, QTEAM Shipment Email Body |
-| Purchase Order | Report 405 | Standard, Simplified |
-| Warehouse Shipment | Report 5795 | Standard, Compact |
+1. Open the appropriate **Report Selections** page, such as **Report Selections - Sales** or **Report Selections - Purchase**.
+2. In the **Usage** field, select the document type you want to configure.
+3. Verify that the **Report ID** matches the report associated with your imported layout.
+4. Enable **Use for Email Attachment**.
+5. Select the **Report Layout** field and choose your desired layout.
+6. Test the configuration using **Edit in Outlook** to verify that the correct document is attached.
 
-> **Note — Sales - Shipment custom layout**: The **QTEAM Shipment Email Body** layout is a custom Word layout (`SalesShipmentEmail.docx`) added via a report extension to the standard Sales - Shipment report. It is used as the email body when sending shipment confirmations via Edit in Outlook (Report Selection Usage: `S.Shipment`). To activate it, go to **Report Selection - Sales**, set Usage to **Shipment**, and select the **QTEAM Shipment Email Body** layout.
 
 ## User Permissions Configuration
 
@@ -340,7 +330,13 @@ if EmailItem.FindSet() then
 - [API Overview](../integration/api-overview.md) - Integration possibilities
 - [Common Errors](../troubleshooting/common-errors.md) - Problem solving
 
+
+
+
 ---
+
+
+
 
 
 #### Template Configuratie Stappen
