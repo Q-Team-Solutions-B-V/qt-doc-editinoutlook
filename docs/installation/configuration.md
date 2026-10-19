@@ -51,6 +51,120 @@ Edit in Outlook uses standard Business Central email templates with extensions.
    - Department-specific templates
    - Customer-specific layouts
 
+### Adding an Email Layout
+
+Business Central allows users to configure custom email layouts for different document types. These layouts determine the content and formatting of the email body when sending documents using Edit in Outlook.
+
+The following instructions explain how to **add an existing Word email layout** and configure it for use in Business Central.
+
+> **Note:** This guide covers adding and configuring an existing layout to Business Central. For instructions on creating or modifying layouts in Microsoft Word, see Microsoft's documentation: [Work with Word layouts](https://learn.microsoft.com/nl-nl/dynamics365/business-central/ui-how-add-fields-word-report-layout).
+
+#### Step 1: Open Report Layouts
+
+1. Open Microsoft Dynamics 365 Business Central.
+2. Select the search icon (Alt + Q).
+3. Search and open the **Report Layouts** page.
+4. Select **New** to add a layout.
+
+![Report Layouts page highlighting the New button](../assets/adding-email-layout/report-layouts-new-btn.png)
+
+#### Step 2: Import the Existing Layout
+
+The **Add New Layout for a Report** window opens.
+
+1. Fill in the following fields:
+   * **Report ID:** Determine and select the report ID associated with the document type. i.e. `1306` for Sales - Invoice.
+   * **Layout Name:** Enter a recognizable name for your layout.
+   * **Description:** (Optional) provide a description.
+   * **Format Options:** Select `Word`.
+   * **Subtype:** If available, use `Default` for a standalone Word layout.
+   * **Available in All Companies:** Enable this option if the layout should be available across all companies.
+2. Leave **Create a blank layout from the report object** disabled because we will upload the layout ourselves.
+3. Select **OK**.
+
+![Add New Layout for a Report window with the required fields](../assets/adding-email-layout/new-report-layout-field.png)
+
+4. A window will open prompting you to browse to the existing `.docx` layout file.
+
+![Window to upload the layout file](../assets/adding-email-layout/upload-layout-window.png)
+
+5. Select the file and upload it. The layout should now be added to Business Central.
+6. Find the newly imported layout on the **Report Layouts** page.
+
+![Report Layouts page showing the successfully imported Word layout](../assets/adding-email-layout/created-layout-page.png)
+
+7. Select the layout and choose Validate to check for potential issues.
+8. The layout initially has the status **Draft**, select **Actions → Layout Status → Set Approved** to make it available for selection.
+
+![Report Layouts page highlighting the set approved button](../assets/adding-email-layout/highlighting-approved-btn.png)
+
+9. Verify that the layout has the status **Approved** instead of **Draft**.
+
+![Showing final result of creating the new document layout](../assets/adding-email-layout/approved-status.png)
+
+
+> **Important:** An email body layout must use the Word format (`.docx`) and must be compatible with the dataset of the selected report. RDLC layouts cannot be used as email body layouts.
+
+#### Step 3: Assign the Email Layout to a Document Type
+After importing the layout, configure which document type should use it.
+
+1. Open the search function (Alt + Q).
+2. Search for **Report Selections** and open the page corresponding to the document type you want to configure.
+   For example:
+   * **Report Selections - Sales:** For sales documents.
+   * **Report Selections - Purchase:** For purchase documents.
+   * **Report Selections - Warehouse:** For warehouse documents.
+   * **Report Selections - Service:** For service documents.
+> **Note:** The available configuration options may differ between Report Selections pages. Not all document types support email body layouts.
+3. For this example, open **Report Selections - Sales**.
+
+![Report Selections - Sales page highlighting the 'Usage' field](../assets/adding-email-layout/sales-page-highlighting-usage-field.png)
+
+4. In the **Usage** field, select the document type you want to configure.
+   For example:
+   * `Quote` for sales quotes.
+   * `Order` for sales orders.
+   * `Invoice` for sales invoices.
+   * `Credit Memo` for sales credit memos.
+5. Verify that the **Report ID** matches the report used when importing the layout.
+6. Confirm that **Use for Email Body** is enabled.
+7. Select the **Email Body Layout** field and choose your imported report layout.
+
+![Report Selections - Sales showing the selected Usage, Report ID, Use for Email Body checkbox, and Email Body Layout](../assets/adding-email-layout/select-the-imported-layout.png)
+
+The selected layout will now be used to generate the email body for the configured document type.
+
+> **Note:** The email body layout and the document attachment layout are configured separately. Changing the email body layout does not automatically change the PDF attachment.
+> **Note:** Customer- or vendor-specific layouts may override the general report selection. If the expected email layout is not applied, you should check the Document Layouts configuration on the relevant Customer or Vendor Card.
+For purchase documents, follow the same procedure using **Report Selections - Purchase**.
+
+#### Step 4: Test the Email Layout
+
+After configuring the email layout, verify that it works correctly.
+
+1. Open a document of the configured type, such as a sales invoice.
+2. Select the **Edit in Outlook** action.
+3. Open the generated email in Outlook.
+4. Verify that:
+   * The configured email body layout is applied.
+   * Document information is displayed correctly.
+   * The formatting is correct.
+   * The expected PDF attachment is included, if applicable.
+
+
+### Additional Information
+
+For more information, refer to the following Microsoft Learn articles:
+
+* **[Work with Word layouts](https://learn.microsoft.com/nl-nl/dynamics365/business-central/ui-how-add-fields-word-report-layout):** Instructions for creating and modifying Word layouts.
+
+* **[Get started creating report layouts](https://learn.microsoft.com/en-us/dynamics365/business-central/ui-get-started-layouts):** Instructions for importing, managing, and replacing layouts.
+
+* **[Set up email in Business Central](https://learn.microsoft.com/en-us/dynamics365/business-central/admin-how-setup-email#set-up-reusable-email-texts-and-layouts):** Instructions for configuring reusable email texts and layouts.
+
+* **[Define document layouts for customers and vendors](https://learn.microsoft.com/en-us/dynamics365/business-central/ui-define-customer-vendor-document-layouts):** Instructions for assigning specific layouts to business partners.
+
+
 ## Document Type Configuration
 
 ### Report Selection Setup
@@ -225,8 +339,9 @@ if EmailItem.FindSet() then
 - [Editing emails](../usage/editing-emails.md) - Start using
 - [API Overview](../integration/api-overview.md) - Integration possibilities
 - [Common Errors](../troubleshooting/common-errors.md) - Problem solving
-   - Department-specific templates
-   - Customer-specific layouts
+
+---
+
 
 #### Template Configuratie Stappen
 1. **Ga naar Email Templates** in Business Central
