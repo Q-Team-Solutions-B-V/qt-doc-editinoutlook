@@ -75,20 +75,31 @@ The functionality is identical, only the installation method differs.
 - ❌ Custom reports (not yet supported)
 
 ### Can I customize the email templates?
-**Q**: Can I create and use my own email templates?
 
-**A**: **Yes!** You can:
-- Use and customize standard Business Central email templates
-- Create HTML templates with placeholders (e.g. %CUSTOMER_NAME%, %DOCUMENT_NO%)
-- Add company-specific branding  
-- Set different templates per document type
+**Q:** Can I create and use my own email templates?
 
-**Example template**:
-```html
-<p>Dear %CUSTOMER_NAME%,</p>
-<p>Please find attached our %DOCUMENT_TYPE% %DOCUMENT_NO%.</p>
-<p>Best regards,<br>%USER_NAME%</p>
-```
+**A:** **Yes!** Business Central allows you to customize email body layouts using Microsoft Word.
+
+You can:
+
+* Use and customize standard Business Central email layouts.
+* Create custom Word (`.docx`) layouts for email bodies.
+* Add company-specific branding, such as logos and formatting.
+* Include dynamic information, such as customer names and document numbers, using fields from the report dataset.
+* Configure different email layouts for different document types.
+* Assign specific layouts to individual customers or vendors.
+
+**How to configure a custom email layout:**
+
+1. Create or modify a Word report layout in Microsoft Word.
+2. Import the layout through the **Report Layouts** page in Business Central.
+3. Assign it to the appropriate document type through **Report Selections**.
+4. Test the layout using **Edit in Outlook**.
+
+For more detailed instructions, see [Adding an Email Layout](../installation/configuration.md#adding-an-email-layout).
+
+For instructions on creating and modifying Word layouts, see Microsoft's [Work with Word layouts](https://learn.microsoft.com/en-us/dynamics365/business-central/ui-how-add-fields-word-report-layout) documentation.
+
 
 ### Can I add additional attachments?
 **Q**: Can I add other files besides the PDF document?
